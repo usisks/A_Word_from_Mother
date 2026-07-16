@@ -7,6 +7,7 @@ import 'package:a_word_from_mother/notifications/notification_scheduler.dart';
 import 'package:a_word_from_mother/platform/time_zone_service.dart';
 import 'package:a_word_from_mother/settings/app_settings.dart';
 import 'package:a_word_from_mother/settings/settings_store.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
@@ -50,7 +51,9 @@ class _Random implements RandomSource {
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('onboarding can continue without requesting permission', (tester) async {
+  testWidgets('onboarding can continue without requesting permission', (
+    tester,
+  ) async {
     final gateway = _Gateway();
     final controller = AppSettingsController(
       store: _Store(),

@@ -31,12 +31,16 @@ class NotificationScheduler {
     required Clock clock,
     required RandomSource random,
     ContentSelector selector = const ContentSelector(),
-  }) : _gateway = gateway,
-       _messages = messages,
-       _timeZoneService = timeZoneService,
-       _clock = clock,
-       _random = random,
-       _selector = selector;
+  }) : this._(gateway, messages, timeZoneService, clock, random, selector);
+
+  NotificationScheduler._(
+    this._gateway,
+    this._messages,
+    this._timeZoneService,
+    this._clock,
+    this._random,
+    this._selector,
+  );
 
   final NotificationGateway _gateway;
   final List<MotherMessage> _messages;
@@ -110,10 +114,13 @@ class NotificationScheduler {
     );
   }
 
-  Future<ScheduleSummary> ensureSchedule({required AppSettings settings}) async {
+  Future<ScheduleSummary> ensureSchedule({
+    required AppSettings settings,
+  }) async {
     final timeZoneId = await _timeZoneService.initialize();
     final refreshedAt = settings.lastScheduleRefreshAt;
-    final stale = refreshedAt == null ||
+    final stale =
+        refreshedAt == null ||
         _clock.now().difference(refreshedAt).inDays >= 23 ||
         settings.lastTimeZoneId != timeZoneId ||
         await _gateway.pendingCount() < 14;
@@ -150,9 +157,7 @@ class NotificationScheduler {
     final count = isToday
         ? math.min(
             capacity,
-            capacity == 1
-                ? 1
-                : _random.nextInt(math.min(3, capacity - 1)) + 2,
+            capacity == 1 ? 1 : _random.nextInt(math.min(3, capacity - 1)) + 2,
           )
         : _random.nextInt(3) + 2;
     final slack = endMinute - startMinute - (90 * (count - 1));
@@ -162,7 +167,13 @@ class NotificationScheduler {
     )..sort();
     return List<DateTime>.generate(count, (index) {
       final minute = startMinute + offsets[index] + (90 * index);
-      return DateTime(date.year, date.month, date.day, minute ~/ 60, minute % 60);
+      return DateTime(
+        date.year,
+        date.month,
+        date.day,
+        minute ~/ 60,
+        minute % 60,
+      );
     });
   }
 

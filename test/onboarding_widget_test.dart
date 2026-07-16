@@ -19,9 +19,15 @@ void main() {
         home: LanguageSelectionPage(onContinue: (_) {}),
       ),
     );
-    expect(tester.widget<FilledButton>(find.byType(FilledButton)).onPressed, isNull);
+    expect(
+      tester.widget<FilledButton>(find.byType(FilledButton)).onPressed,
+      isNull,
+    );
     await tester.tap(find.text('日本語').last);
     await tester.pump();
-    expect(tester.widget<FilledButton>(find.byType(FilledButton)).onPressed, isNotNull);
+    expect(
+      tester.widget<FilledButton>(find.byType(FilledButton)).onPressed,
+      isNotNull,
+    );
   });
 }

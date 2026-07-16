@@ -72,7 +72,10 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Text(l10n.settings, style: Theme.of(context).textTheme.headlineSmall),
+            Text(
+              l10n.settings,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
             ListTile(
               minVerticalPadding: 12,
               leading: const Icon(Icons.translate),
@@ -108,10 +111,11 @@ class HomePage extends StatelessWidget {
   String _languageName(AppLocalizations l10n, AppLanguage language) =>
       language == AppLanguage.ja ? l10n.japanese : l10n.english;
 
-  String _voiceName(AppLocalizations l10n, MotherVoice voice) => switch (voice) {
-    MotherVoice.jaStandard => l10n.jaStandard,
-    MotherVoice.jaKansai => l10n.jaKansai,
-    MotherVoice.enNeutral => l10n.enNeutral,
-    MotherVoice.enBritish => l10n.enBritish,
-  };
+  String _voiceName(AppLocalizations l10n, MotherVoice voice) =>
+      switch (voice) {
+        MotherVoice.jaStandard => l10n.jaStandard,
+        MotherVoice.jaKansai => l10n.jaKansai,
+        MotherVoice.enNeutral => l10n.enNeutral,
+        MotherVoice.enBritish => l10n.enBritish,
+      };
 }

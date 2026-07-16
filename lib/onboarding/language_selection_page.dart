@@ -26,7 +26,10 @@ class _LanguageSelectionPageState extends State<LanguageSelectionPage> {
           children: [
             Text(l10n.tagline, style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 28),
-            Text(l10n.chooseLanguage, style: Theme.of(context).textTheme.headlineSmall),
+            Text(
+              l10n.chooseLanguage,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
             const SizedBox(height: 12),
             SelectionCard(
               value: AppLanguage.ja,

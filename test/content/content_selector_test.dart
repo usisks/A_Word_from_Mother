@@ -24,6 +24,8 @@ MotherMessage message(
 );
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   const selector = ContentSelector();
   final random = _ZeroRandom();
 
@@ -31,15 +33,33 @@ void main() {
     final messages = await const ContentLoader().load();
     expect(messages, hasLength(160));
     for (final voice in MotherVoice.values) {
-      expect(messages.where((message) => message.voice == voice), hasLength(40));
+      expect(
+        messages.where((message) => message.voice == voice),
+        hasLength(40),
+      );
     }
   });
 
   test('excludes recent IDs and a category used twice', () {
     final messages = [
-      message('recent', AppLanguage.ja, MotherVoice.jaKansai, MessageCategory.daily),
-      message('blocked', AppLanguage.ja, MotherVoice.jaKansai, MessageCategory.caring),
-      message('chosen', AppLanguage.ja, MotherVoice.jaKansai, MessageCategory.useful),
+      message(
+        'recent',
+        AppLanguage.ja,
+        MotherVoice.jaKansai,
+        MessageCategory.daily,
+      ),
+      message(
+        'blocked',
+        AppLanguage.ja,
+        MotherVoice.jaKansai,
+        MessageCategory.caring,
+      ),
+      message(
+        'chosen',
+        AppLanguage.ja,
+        MotherVoice.jaKansai,
+        MessageCategory.useful,
+      ),
     ];
     final selected = selector.select(
       messages: messages,
@@ -55,8 +75,18 @@ void main() {
   test('falls back only to standard voice in the same language', () {
     final selected = selector.select(
       messages: [
-        message('standard', AppLanguage.ja, MotherVoice.jaStandard, MessageCategory.daily),
-        message('english', AppLanguage.en, MotherVoice.enNeutral, MessageCategory.daily),
+        message(
+          'standard',
+          AppLanguage.ja,
+          MotherVoice.jaStandard,
+          MessageCategory.daily,
+        ),
+        message(
+          'english',
+          AppLanguage.en,
+          MotherVoice.enNeutral,
+          MessageCategory.daily,
+        ),
       ],
       language: AppLanguage.ja,
       voice: MotherVoice.jaKansai,
@@ -70,7 +100,12 @@ void main() {
   test('returns null when no same-language candidate remains', () {
     final selected = selector.select(
       messages: [
-        message('english', AppLanguage.en, MotherVoice.enNeutral, MessageCategory.daily),
+        message(
+          'english',
+          AppLanguage.en,
+          MotherVoice.enNeutral,
+          MessageCategory.daily,
+        ),
       ],
       language: AppLanguage.ja,
       voice: MotherVoice.jaKansai,

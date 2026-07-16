@@ -11,9 +11,9 @@ class AppSettingsController extends ChangeNotifier {
     required SettingsStore store,
     required NotificationGateway gateway,
     required NotificationScheduler scheduler,
-  }) : _store = store,
-       _gateway = gateway,
-       _scheduler = scheduler;
+  }) : this._(store, gateway, scheduler);
+
+  AppSettingsController._(this._store, this._gateway, this._scheduler);
 
   final SettingsStore _store;
   final NotificationGateway _gateway;
@@ -137,10 +137,9 @@ class AppSettingsController extends ChangeNotifier {
       }
       _state = _state.copyWith(permission: NotificationPermissionState.granted);
       final summary = await _scheduler.rebuild(settings: _state.settings);
-      final settings = _settingsAfterSchedule(summary).copyWith(
-        onboardingCompleted: true,
-        notificationsEnabled: true,
-      );
+      final settings = _settingsAfterSchedule(
+        summary,
+      ).copyWith(onboardingCompleted: true, notificationsEnabled: true);
       await _persistAndVerify(settings, expectedNotificationsEnabled: true);
       _state = _state.copyWith(
         phase: AppPhase.home,

@@ -18,9 +18,7 @@ class SharedPreferencesSettingsStore implements SettingsStore {
         _ => AppLanguage.ja,
       };
       final rawVoice = await _preferences.getString('voice');
-      final storedVoice = MotherVoiceValue.tryParse(
-        rawVoice,
-      );
+      final storedVoice = MotherVoiceValue.tryParse(rawVoice);
       final voice = storedVoice?.language == language
           ? storedVoice!
           : language.defaultVoice;

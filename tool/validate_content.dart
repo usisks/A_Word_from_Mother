@@ -64,7 +64,9 @@ void main() {
     final voice = item['voice'];
     final category = item['category'];
     final body = item['body'];
-    if (id is! String || !idPattern.hasMatch(id)) errors.add('[$index] invalid id');
+    if (id is! String || !idPattern.hasMatch(id)) {
+      errors.add('[$index] invalid id');
+    }
     if (language is! String || !validVoices.containsKey(language)) {
       errors.add('[$index] invalid language');
       continue;
@@ -85,16 +87,27 @@ void main() {
       errors.add('[$index] body must contain 1–90 characters');
     } else {
       if (!bodies.add(body)) errors.add('[$index] duplicate body');
-      if (controls.hasMatch(body)) errors.add('[$index] body has control characters');
+      if (controls.hasMatch(body)) {
+        errors.add('[$index] body has control characters');
+      }
       final lower = body.toLowerCase();
       for (final term in blockedTerms) {
-        if (lower.contains(term.toLowerCase())) errors.add('[$index] blocked term: $term');
+        if (lower.contains(term.toLowerCase())) {
+          errors.add('[$index] blocked term: $term');
+        }
       }
     }
     counts['$language-$voice'] = (counts['$language-$voice'] ?? 0) + 1;
   }
-  for (final voice in const ['ja-standard', 'ja-kansai', 'en-neutral', 'en-british']) {
-    if ((counts[voice] ?? 0) < 40) errors.add('$voice has fewer than 40 messages');
+  for (final voice in const [
+    'ja-standard',
+    'ja-kansai',
+    'en-neutral',
+    'en-british',
+  ]) {
+    if ((counts[voice] ?? 0) < 40) {
+      errors.add('$voice has fewer than 40 messages');
+    }
   }
   if (errors.isNotEmpty) {
     stderr.writeln(errors.join('\n'));
@@ -102,5 +115,7 @@ void main() {
     return;
   }
   stdout.writeln('Validated ${decoded.length} provisional messages: $counts');
-  stdout.writeln('Automated validation passed. Human editorial audit is still required.');
+  stdout.writeln(
+    'Automated validation passed. Human editorial audit is still required.',
+  );
 }

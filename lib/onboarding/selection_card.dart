@@ -28,7 +28,9 @@ class SelectionCard<T> extends StatelessWidget {
       label: selected ? '$title、$selectedWord' : title,
       child: Card(
         clipBehavior: Clip.antiAlias,
-        color: selected ? Theme.of(context).colorScheme.secondaryContainer : null,
+        color: selected
+            ? Theme.of(context).colorScheme.secondaryContainer
+            : null,
         child: InkWell(
           onTap: () => onSelected(value),
           child: ConstrainedBox(
@@ -41,7 +43,10 @@ class SelectionCard<T> extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title, style: Theme.of(context).textTheme.titleMedium),
+                        Text(
+                          title,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                         if (subtitle != null) ...[
                           const SizedBox(height: 6),
                           Text(subtitle!),

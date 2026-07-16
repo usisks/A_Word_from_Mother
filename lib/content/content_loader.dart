@@ -5,7 +5,10 @@ import 'package:flutter/services.dart';
 import 'mother_message.dart';
 
 class ContentLoader {
-  const ContentLoader({AssetBundle? bundle}) : _bundle = bundle;
+  const ContentLoader({AssetBundle? bundle}) : this._(bundle);
+
+  const ContentLoader._(this._bundle);
+
   final AssetBundle? _bundle;
 
   Future<List<MotherMessage>> load() async {
@@ -24,7 +27,8 @@ class ContentLoader {
           return MotherMessage.fromJson(item);
         })
         .toList(growable: false);
-    if (messages.isEmpty || messages.map((m) => m.id).toSet().length != messages.length) {
+    if (messages.isEmpty ||
+        messages.map((m) => m.id).toSet().length != messages.length) {
       throw const FormatException('Content is empty or contains duplicate IDs');
     }
     return messages;

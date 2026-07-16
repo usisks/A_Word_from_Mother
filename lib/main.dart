@@ -22,7 +22,9 @@ class _BootstrapHostState extends State<_BootstrapHost> {
   Widget build(BuildContext context) => FutureBuilder<AppSettingsController>(
     future: _bootstrap,
     builder: (context, snapshot) {
-      if (snapshot.hasData) return MotherWordApp(controller: snapshot.requireData);
+      if (snapshot.hasData) {
+        return MotherWordApp(controller: snapshot.requireData);
+      }
       if (snapshot.hasError) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -32,7 +34,12 @@ class _BootstrapHostState extends State<_BootstrapHost> {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Text(
-                    WidgetsBinding.instance.platformDispatcher.locale.languageCode == 'ja'
+                    WidgetsBinding
+                                .instance
+                                .platformDispatcher
+                                .locale
+                                .languageCode ==
+                            'ja'
                         ? 'アプリのデータを読み込めませんでした。'
                         : 'The app data could not be loaded.',
                   ),

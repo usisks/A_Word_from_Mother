@@ -4,9 +4,8 @@ enum MotherVoice { jaStandard, jaKansai, enNeutral, enBritish }
 
 extension AppLanguageValue on AppLanguage {
   String get value => name;
-  MotherVoice get defaultVoice => this == AppLanguage.ja
-      ? MotherVoice.jaStandard
-      : MotherVoice.enNeutral;
+  MotherVoice get defaultVoice =>
+      this == AppLanguage.ja ? MotherVoice.jaStandard : MotherVoice.enNeutral;
 }
 
 extension MotherVoiceValue on MotherVoice {

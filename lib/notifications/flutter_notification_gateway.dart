@@ -19,8 +19,8 @@ class FlutterNotificationGateway implements NotificationGateway {
 
   VoidCallback? onNotificationBodyTap;
 
-  AndroidFlutterLocalNotificationsPlugin? get _android =>
-      _plugin.resolvePlatformSpecificImplementation<
+  AndroidFlutterLocalNotificationsPlugin? get _android => _plugin
+      .resolvePlatformSpecificImplementation<
         AndroidFlutterLocalNotificationsPlugin
       >();
 

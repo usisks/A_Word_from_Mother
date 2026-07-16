@@ -28,6 +28,7 @@ class _Gateway implements NotificationGateway {
   Future<void> cancelAll() async {
     cancelCalls++;
   }
+
   @override
   Future<void> initialize() async {}
   @override
@@ -50,7 +51,7 @@ class _Random implements RandomSource {
   int nextInt(int max) => 0;
 }
 
-AppSettingsController controller(_Store store, _Gateway gateway) =>
+AppSettingsController _controller(_Store store, _Gateway gateway) =>
     AppSettingsController(
       store: store,
       gateway: gateway,
@@ -64,29 +65,35 @@ AppSettingsController controller(_Store store, _Gateway gateway) =>
     );
 
 void main() {
-  test('first launch progresses to Home without requesting permission', () async {
-    final store = _Store();
-    final app = controller(store, _Gateway());
-    await app.initialize();
-    expect(app.state.phase, AppPhase.languageSelection);
-    await app.completeLanguageSelection(AppLanguage.en);
-    expect(app.state.phase, AppPhase.voiceSelection);
-    await app.completeVoiceSelection(MotherVoice.enBritish);
-    expect(app.state.phase, AppPhase.permissionExplanation);
-    await app.completeOnboardingWithoutNotifications();
-    expect(app.state.phase, AppPhase.home);
-    expect(store.value.onboardingCompleted, isTrue);
-    expect(store.value.notificationsEnabled, isFalse);
-  });
+  test(
+    'first launch progresses to Home without requesting permission',
+    () async {
+      final store = _Store();
+      final app = _controller(store, _Gateway());
+      await app.initialize();
+      expect(app.state.phase, AppPhase.languageSelection);
+      await app.completeLanguageSelection(AppLanguage.en);
+      expect(app.state.phase, AppPhase.voiceSelection);
+      await app.completeVoiceSelection(MotherVoice.enBritish);
+      expect(app.state.phase, AppPhase.permissionExplanation);
+      await app.completeOnboardingWithoutNotifications();
+      expect(app.state.phase, AppPhase.home);
+      expect(store.value.onboardingCompleted, isTrue);
+      expect(store.value.notificationsEnabled, isFalse);
+    },
+  );
 
-  test('permission denial finishes onboarding safely with notifications off', () async {
-    final store = _Store();
-    final app = controller(store, _Gateway());
-    await app.initialize();
-    await app.requestPermissionAndEnableNotifications();
-    expect(app.state.phase, AppPhase.home);
-    expect(app.state.permission, NotificationPermissionState.denied);
-    expect(app.state.settings.notificationsEnabled, isFalse);
-    expect(app.state.userVisibleError, 'permission_denied');
-  });
+  test(
+    'permission denial finishes onboarding safely with notifications off',
+    () async {
+      final store = _Store();
+      final app = _controller(store, _Gateway());
+      await app.initialize();
+      await app.requestPermissionAndEnableNotifications();
+      expect(app.state.phase, AppPhase.home);
+      expect(app.state.permission, NotificationPermissionState.denied);
+      expect(app.state.settings.notificationsEnabled, isFalse);
+      expect(app.state.userVisibleError, 'permission_denied');
+    },
+  );
 }

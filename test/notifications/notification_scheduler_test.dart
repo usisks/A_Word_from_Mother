@@ -55,30 +55,34 @@ void main() {
       isToday: false,
     );
     expect(times.length, inInclusiveRange(2, 4));
-    expect(times.first.hour * 60 + times.first.minute, greaterThanOrEqualTo(480));
+    expect(
+      times.first.hour * 60 + times.first.minute,
+      greaterThanOrEqualTo(480),
+    );
     expect(times.last.hour * 60 + times.last.minute, lessThanOrEqualTo(1230));
     for (var index = 1; index < times.length; index++) {
-      expect(times[index].difference(times[index - 1]).inMinutes, greaterThanOrEqualTo(90));
+      expect(
+        times[index].difference(times[index - 1]).inMinutes,
+        greaterThanOrEqualTo(90),
+      );
     }
   });
 
   test('today never schedules before now plus 30 minutes', () {
     final now = DateTime(2026, 7, 16, 12, 10);
-    final times = scheduler(now, [0, 0, 0]).generateTimesForDay(
-      date: DateTime(2026, 7, 16),
-      now: now,
-      isToday: true,
-    );
+    final times = scheduler(
+      now,
+      [0, 0, 0],
+    ).generateTimesForDay(date: DateTime(2026, 7, 16), now: now, isToday: true);
     expect(times.first.isBefore(now.add(const Duration(minutes: 30))), isFalse);
   });
 
   test('today after 20:30 has no reservation', () {
     final now = DateTime(2026, 7, 16, 20, 1);
-    final times = scheduler(now, [0]).generateTimesForDay(
-      date: DateTime(2026, 7, 16),
-      now: now,
-      isToday: true,
-    );
+    final times = scheduler(
+      now,
+      [0],
+    ).generateTimesForDay(date: DateTime(2026, 7, 16), now: now, isToday: true);
     expect(times, isEmpty);
   });
 

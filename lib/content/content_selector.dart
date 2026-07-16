@@ -17,7 +17,8 @@ class ContentSelector {
       throw ArgumentError('Voice does not belong to language');
     }
     MotherMessage? choose(MotherVoice candidateVoice) {
-      final blockedCategory = recentCategories.length >= 2 &&
+      final blockedCategory =
+          recentCategories.length >= 2 &&
               recentCategories[recentCategories.length - 1] ==
                   recentCategories[recentCategories.length - 2]
           ? recentCategories.last
@@ -31,7 +32,9 @@ class ContentSelector {
                 message.category.value != blockedCategory,
           )
           .toList(growable: false);
-      return candidates.isEmpty ? null : candidates[random.nextInt(candidates.length)];
+      return candidates.isEmpty
+          ? null
+          : candidates[random.nextInt(candidates.length)];
     }
 
     return choose(voice) ?? choose(language.defaultVoice);

@@ -23,14 +23,23 @@ class NotificationPermissionPage extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           children: [
             _Fact(icon: Icons.schedule, text: l10n.permissionTiming),
-            _Fact(icon: Icons.notifications_off_outlined, text: l10n.permissionStop),
-            _Fact(icon: Icons.sentiment_satisfied_alt, text: l10n.permissionJokes),
+            _Fact(
+              icon: Icons.notifications_off_outlined,
+              text: l10n.permissionStop,
+            ),
+            _Fact(
+              icon: Icons.sentiment_satisfied_alt,
+              text: l10n.permissionJokes,
+            ),
             const SizedBox(height: 24),
             FilledButton(
               onPressed: working ? null : onAllow,
               child: Text(l10n.allowNotifications),
             ),
-            TextButton(onPressed: working ? null : onSkip, child: Text(l10n.notNow)),
+            TextButton(
+              onPressed: working ? null : onSkip,
+              child: Text(l10n.notNow),
+            ),
             if (working) const Center(child: CircularProgressIndicator()),
           ],
         ),
