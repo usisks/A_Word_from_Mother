@@ -139,5 +139,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startupError => 'The app data could not be loaded.';
 
   @override
+  String get notificationUnavailable =>
+      'Notifications are temporarily unavailable. You can continue using the app with notifications off.';
+
+  @override
+  String get errorCode => 'Error code';
+
+  @override
   String get notificationSwitchLabel => 'Messages from Mom';
 }

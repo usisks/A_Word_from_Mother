@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../core/diagnostics.dart';
 import '../notifications/notification_gateway.dart';
 import '../notifications/notification_scheduler.dart';
 import '../settings/app_settings.dart';
@@ -20,40 +21,54 @@ class AppSettingsController extends ChangeNotifier {
   final NotificationScheduler _scheduler;
   AppViewState _state = AppViewState.loading();
   bool _editing = false;
+  bool _notificationInitialized = false;
 
   AppViewState get state => _state;
 
   Future<void> initialize() async {
+    var settings = AppSettings.defaults();
+    String? startupWarning;
     try {
-      await _gateway.initialize();
-      var settings = await _store.read();
-      final allowed = await _gateway.areNotificationsEnabled();
-      if (settings.notificationsEnabled && !allowed) {
-        await _cancelBestEffort();
-        settings = settings.copyWith(notificationsEnabled: false);
-        await _store.write(settings);
-      }
-      _state = _state.copyWith(
-        settings: settings,
-        permission: allowed
-            ? NotificationPermissionState.granted
-            : NotificationPermissionState.denied,
-        phase: settings.onboardingCompleted
-            ? AppPhase.home
-            : AppPhase.languageSelection,
-      );
-      notifyListeners();
-      if (settings.notificationsEnabled && allowed) {
-        await _refreshSchedule(rebuild: false);
-      }
+      settings = await _store.read();
     } on Object catch (error, stack) {
-      debugPrint('startup_failed: $error\n$stack');
-      _state = _state.copyWith(
-        phase: AppPhase.startupError,
-        settings: AppSettings.defaults(),
-        userVisibleError: 'settings_read_failed',
-      );
-      notifyListeners();
+      logFailure('settings_read_failed', error, stack);
+      startupWarning = 'settings_read_failed';
+    }
+
+    final initializationError = await _ensureNotificationInitialized();
+    final allowed = initializationError == null
+        ? await _areNotificationsEnabledSafely()
+        : null;
+    final notificationError =
+        initializationError ??
+        (allowed == null ? 'notification_permission_check_failed' : null);
+    startupWarning = notificationError ?? startupWarning;
+
+    if (settings.notificationsEnabled &&
+        (notificationError != null || allowed != true)) {
+      await _cancelBestEffort();
+      settings = settings.copyWith(notificationsEnabled: false);
+      await _persistBestEffort(settings);
+    }
+
+    _state = AppViewState(
+      settings: settings,
+      permission: allowed == null
+          ? NotificationPermissionState.unknown
+          : allowed
+          ? NotificationPermissionState.granted
+          : NotificationPermissionState.denied,
+      phase: settings.onboardingCompleted
+          ? AppPhase.home
+          : AppPhase.languageSelection,
+      scheduling: notificationError == null
+          ? SchedulingState.idle
+          : SchedulingState.failed,
+      userVisibleError: startupWarning,
+    );
+    notifyListeners();
+    if (settings.notificationsEnabled && allowed == true) {
+      await _refreshSchedule(rebuild: false);
     }
   }
 
@@ -110,14 +125,40 @@ class AppSettingsController extends ChangeNotifier {
       notificationsEnabled: false,
     );
     await _persist(settings);
-    _state = _state.copyWith(phase: AppPhase.home, settings: settings);
+    _state = _state.copyWith(
+      phase: AppPhase.home,
+      settings: settings,
+      scheduling: SchedulingState.idle,
+      clearError: true,
+    );
     notifyListeners();
   }
 
   Future<void> requestPermissionAndEnableNotifications() async {
     _setWorking();
+    final initializationError = await _ensureNotificationInitialized();
+    if (initializationError != null) {
+      await _disableNotificationsAfterFailure(initializationError);
+      return;
+    }
+    final alreadyAllowed = await _areNotificationsEnabledSafely();
+    if (alreadyAllowed == null) {
+      await _disableNotificationsAfterFailure(
+        'notification_permission_check_failed',
+      );
+      return;
+    }
+    bool granted;
     try {
-      final granted = await _gateway.requestPermission();
+      granted = alreadyAllowed || await _gateway.requestPermission();
+    } on Object catch (error, stackTrace) {
+      logFailure('notification_permission_request_failed', error, stackTrace);
+      await _disableNotificationsAfterFailure(
+        'notification_permission_request_failed',
+      );
+      return;
+    }
+    try {
       if (!granted) {
         await _cancelBestEffort();
         final settings = _state.settings.copyWith(
@@ -148,7 +189,7 @@ class AppSettingsController extends ChangeNotifier {
         clearError: true,
       );
     } on Object catch (error, stack) {
-      debugPrint('schedule_failed: $error\n$stack');
+      logFailure('schedule_failed', error, stack);
       await _cancelBestEffort();
       final settings = _state.settings.copyWith(
         onboardingCompleted: true,
@@ -175,7 +216,8 @@ class AppSettingsController extends ChangeNotifier {
     try {
       try {
         await _scheduler.cancelAll();
-      } on Object {
+      } on Object catch (error, stackTrace) {
+        logFailure('cancel_first_attempt_failed', error, stackTrace);
         await _scheduler.cancelAll();
       }
       final settings = _state.settings.copyWith(notificationsEnabled: false);
@@ -185,8 +227,8 @@ class AppSettingsController extends ChangeNotifier {
         scheduling: SchedulingState.idle,
         clearError: true,
       );
-    } on Object catch (error) {
-      debugPrint('cancel_failed: $error');
+    } on Object catch (error, stackTrace) {
+      logFailure('cancel_failed', error, stackTrace);
       _state = _state.copyWith(
         scheduling: SchedulingState.failed,
         userVisibleError: 'cancel_failed',
@@ -216,7 +258,22 @@ class AppSettingsController extends ChangeNotifier {
 
   Future<void> onAppResumed() async {
     if (_state.phase != AppPhase.home) return;
-    final allowed = await _gateway.areNotificationsEnabled();
+    final initializationError = await _ensureNotificationInitialized();
+    if (initializationError != null) {
+      await _disableNotificationsAfterFailure(
+        initializationError,
+        completeOnboarding: false,
+      );
+      return;
+    }
+    final allowed = await _areNotificationsEnabledSafely();
+    if (allowed == null) {
+      await _disableNotificationsAfterFailure(
+        'notification_permission_check_failed',
+        completeOnboarding: false,
+      );
+      return;
+    }
     _state = _state.copyWith(
       permission: allowed
           ? NotificationPermissionState.granted
@@ -225,8 +282,8 @@ class AppSettingsController extends ChangeNotifier {
     if (!allowed && _state.settings.notificationsEnabled) {
       try {
         await _scheduler.cancelAll();
-      } on Object catch (error) {
-        debugPrint('cancel_after_permission_revoked_failed: $error');
+      } on Object catch (error, stackTrace) {
+        logFailure('cancel_after_permission_revoked_failed', error, stackTrace);
       }
       final settings = _state.settings.copyWith(notificationsEnabled: false);
       await _persist(settings);
@@ -237,9 +294,43 @@ class AppSettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> retryScheduling() => _state.settings.notificationsEnabled
-      ? _refreshSchedule(rebuild: true)
-      : setNotificationsEnabled(true);
+  Future<void> retryScheduling() => switch (_state.userVisibleError) {
+    'notification_initialize_failed' ||
+    'notification_permission_check_failed' => retryNotificationSetup(),
+    _ =>
+      _state.settings.notificationsEnabled
+          ? _refreshSchedule(rebuild: true)
+          : setNotificationsEnabled(true),
+  };
+
+  Future<void> retryNotificationSetup() async {
+    _setWorking();
+    final initializationError = await _ensureNotificationInitialized();
+    if (initializationError != null) {
+      await _disableNotificationsAfterFailure(
+        initializationError,
+        completeOnboarding: false,
+      );
+      return;
+    }
+    final allowed = await _areNotificationsEnabledSafely();
+    if (allowed == null) {
+      await _disableNotificationsAfterFailure(
+        'notification_permission_check_failed',
+        completeOnboarding: false,
+      );
+      return;
+    }
+    _state = _state.copyWith(
+      permission: allowed
+          ? NotificationPermissionState.granted
+          : NotificationPermissionState.denied,
+      scheduling: SchedulingState.idle,
+      clearError: true,
+    );
+    notifyListeners();
+  }
+
   Future<void> openSystemNotificationSettings() =>
       _gateway.openSystemNotificationSettings();
 
@@ -265,7 +356,7 @@ class AppSettingsController extends ChangeNotifier {
         clearError: true,
       );
     } on Object catch (error, stack) {
-      debugPrint('schedule_failed: $error\n$stack');
+      logFailure('schedule_failed', error, stack);
       await _cancelBestEffort();
       final settings = _state.settings.copyWith(notificationsEnabled: false);
       await _persist(settings);
@@ -291,8 +382,58 @@ class AppSettingsController extends ChangeNotifier {
   Future<void> _cancelBestEffort() async {
     try {
       await _gateway.cancelAll();
-    } on Object catch (error) {
-      debugPrint('best_effort_cancel_failed: $error');
+    } on Object catch (error, stackTrace) {
+      logFailure('best_effort_cancel_failed', error, stackTrace);
+    }
+  }
+
+  Future<String?> _ensureNotificationInitialized() async {
+    if (_notificationInitialized) return null;
+    try {
+      await _gateway.initialize();
+      _notificationInitialized = true;
+      return null;
+    } on Object catch (error, stackTrace) {
+      logFailure('notification_initialize_failed', error, stackTrace);
+      return 'notification_initialize_failed';
+    }
+  }
+
+  Future<bool?> _areNotificationsEnabledSafely() async {
+    try {
+      return await _gateway.areNotificationsEnabled();
+    } on Object catch (error, stackTrace) {
+      logFailure('notification_permission_check_failed', error, stackTrace);
+      return null;
+    }
+  }
+
+  Future<void> _disableNotificationsAfterFailure(
+    String errorCode, {
+    bool completeOnboarding = true,
+  }) async {
+    await _cancelBestEffort();
+    final settings = _state.settings.copyWith(
+      onboardingCompleted:
+          completeOnboarding || _state.settings.onboardingCompleted,
+      notificationsEnabled: false,
+    );
+    await _persistBestEffort(settings);
+    _state = _state.copyWith(
+      phase: completeOnboarding ? AppPhase.home : _state.phase,
+      settings: settings,
+      permission: NotificationPermissionState.unknown,
+      scheduling: SchedulingState.failed,
+      userVisibleError: errorCode,
+    );
+    notifyListeners();
+  }
+
+  Future<void> _persistBestEffort(AppSettings settings) async {
+    try {
+      await _persist(settings);
+    } on Object catch (error, stackTrace) {
+      logFailure('settings_write_failed', error, stackTrace);
     }
   }
 

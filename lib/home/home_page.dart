@@ -65,6 +65,11 @@ class HomePage extends StatelessWidget {
                     ],
                     if (failed) ...[
                       const SizedBox(height: 8),
+                      Text(l10n.notificationUnavailable),
+                      if (state.userVisibleError != null) ...[
+                        const SizedBox(height: 4),
+                        Text('${l10n.errorCode}: ${state.userVisibleError}'),
+                      ],
                       TextButton(onPressed: onRetry, child: Text(l10n.retry)),
                     ],
                   ],

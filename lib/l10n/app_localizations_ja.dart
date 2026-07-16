@@ -131,5 +131,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get startupError => 'アプリのデータを読み込めませんでした。';
 
   @override
+  String get notificationUnavailable =>
+      '通知機能を一時的に利用できません。通知をオフにしたままアプリを利用できます。';
+
+  @override
+  String get errorCode => 'エラーコード';
+
+  @override
   String get notificationSwitchLabel => '母からの通知';
 }

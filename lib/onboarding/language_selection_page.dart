@@ -5,8 +5,17 @@ import '../settings/app_settings.dart';
 import 'selection_card.dart';
 
 class LanguageSelectionPage extends StatefulWidget {
-  const LanguageSelectionPage({required this.onContinue, super.key});
+  const LanguageSelectionPage({
+    required this.onContinue,
+    this.notificationWarningCode,
+    this.onRetryNotificationSetup,
+    this.retrying = false,
+    super.key,
+  });
   final ValueChanged<AppLanguage> onContinue;
+  final String? notificationWarningCode;
+  final VoidCallback? onRetryNotificationSetup;
+  final bool retrying;
 
   @override
   State<LanguageSelectionPage> createState() => _LanguageSelectionPageState();
@@ -24,6 +33,33 @@ class _LanguageSelectionPageState extends State<LanguageSelectionPage> {
         child: ListView(
           padding: const EdgeInsets.all(24),
           children: [
+            if (widget.notificationWarningCode != null) ...[
+              Card(
+                color: Theme.of(context).colorScheme.errorContainer,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(l10n.notificationUnavailable),
+                      const SizedBox(height: 8),
+                      Text(
+                        '${l10n.errorCode}: '
+                        '${widget.notificationWarningCode}',
+                      ),
+                      if (widget.onRetryNotificationSetup != null)
+                        TextButton(
+                          onPressed: widget.retrying
+                              ? null
+                              : widget.onRetryNotificationSetup,
+                          child: Text(l10n.retry),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
             Text(l10n.tagline, style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 28),
             Text(

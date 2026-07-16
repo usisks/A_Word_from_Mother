@@ -30,4 +30,38 @@ void main() {
       isNotNull,
     );
   });
+
+  testWidgets('notification startup warning is visible and retryable', (
+    tester,
+  ) async {
+    var retries = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: LanguageSelectionPage(
+          onContinue: (_) {},
+          notificationWarningCode: 'notification_initialize_failed',
+          onRetryNotificationSetup: () => retries++,
+        ),
+      ),
+    );
+
+    expect(
+      find.textContaining('Notifications are temporarily unavailable'),
+      findsOneWidget,
+    );
+    expect(
+      find.text('Error code: notification_initialize_failed'),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Try again'));
+    expect(retries, 1);
+  });
 }

@@ -74,6 +74,9 @@ class _MotherWordAppState extends State<MotherWordApp>
     ),
     AppPhase.languageSelection => LanguageSelectionPage(
       onContinue: widget.controller.completeLanguageSelection,
+      notificationWarningCode: _notificationWarning(state.userVisibleError),
+      onRetryNotificationSetup: widget.controller.retryNotificationSetup,
+      retrying: state.scheduling == SchedulingState.working,
     ),
     AppPhase.voiceSelection => VoiceSelectionPage(
       language: state.settings.language,
@@ -92,19 +95,45 @@ class _MotherWordAppState extends State<MotherWordApp>
       onOpenSystemSettings: widget.controller.openSystemNotificationSettings,
       onRetry: widget.controller.retryScheduling,
     ),
-    AppPhase.startupError => const _StartupErrorPage(),
+    AppPhase.startupError => _StartupErrorPage(
+      errorCode: state.userVisibleError ?? 'startup_failed',
+      onRetry: widget.controller.initialize,
+    ),
+  };
+
+  String? _notificationWarning(String? errorCode) => switch (errorCode) {
+    'notification_initialize_failed' ||
+    'notification_permission_check_failed' ||
+    'notification_permission_request_failed' => errorCode,
+    _ => null,
   };
 }
 
 class _StartupErrorPage extends StatelessWidget {
-  const _StartupErrorPage();
+  const _StartupErrorPage({required this.errorCode, required this.onRetry});
+
+  final String errorCode;
+  final VoidCallback onRetry;
+
   @override
   Widget build(BuildContext context) => Scaffold(
     body: SafeArea(
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Text(AppLocalizations.of(context).startupError),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(AppLocalizations.of(context).startupError),
+              const SizedBox(height: 12),
+              Text('${AppLocalizations.of(context).errorCode}: $errorCode'),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: onRetry,
+                child: Text(AppLocalizations.of(context).retry),
+              ),
+            ],
+          ),
         ),
       ),
     ),

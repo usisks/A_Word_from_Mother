@@ -338,6 +338,18 @@ abstract class AppLocalizations {
   /// **'The app data could not be loaded.'**
   String get startupError;
 
+  /// No description provided for @notificationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are temporarily unavailable. You can continue using the app with notifications off.'**
+  String get notificationUnavailable;
+
+  /// No description provided for @errorCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Error code'**
+  String get errorCode;
+
   /// No description provided for @notificationSwitchLabel.
   ///
   /// In en, this message translates to:

@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../core/diagnostics.dart';
 import 'app_settings.dart';
 import 'settings_store.dart';
 
@@ -47,7 +48,8 @@ class SharedPreferencesSettingsStore implements SettingsStore {
         ),
         lastTimeZoneId: await _preferences.getString('last_time_zone_id'),
       );
-    } on Object {
+    } on Object catch (error, stackTrace) {
+      logFailure('settings_read_failed', error, stackTrace);
       return AppSettings.defaults();
     }
   }

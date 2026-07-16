@@ -40,5 +40,7 @@
   "jokeNoticeBody": "Some messages are intentionally made-up jokes, not factual, medical, legal, or safety advice.",
   "retry": "Try again",
   "startupError": "The app data could not be loaded.",
+  "notificationUnavailable": "Notifications are temporarily unavailable. You can continue using the app with notifications off.",
+  "errorCode": "Error code",
   "notificationSwitchLabel": "Messages from Mom"
 }

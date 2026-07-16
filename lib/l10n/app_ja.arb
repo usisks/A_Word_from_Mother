@@ -40,5 +40,7 @@
   "jokeNoticeBody": "一部は意図的に作られた冗談です。事実、医療、法律、安全に関する助言ではありません。",
   "retry": "もう一度試す",
   "startupError": "アプリのデータを読み込めませんでした。",
+  "notificationUnavailable": "通知機能を一時的に利用できません。通知をオフにしたままアプリを利用できます。",
+  "errorCode": "エラーコード",
   "notificationSwitchLabel": "母からの通知"
 }
