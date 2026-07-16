@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "ja-standard-admonition-0001",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "靴はそろえておきなさい"
+  },
+  {
+    "id": "ja-standard-daily-0002",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "冷蔵庫、開ける前に何を取るか決めなさい"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0003",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "隣の猫、今日は会議がある顔してたわよ"
+  },
+  {
+    "id": "ja-standard-fake_tip-0004",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "靴下を丸めると運が四角くなるらしいわよ"
+  },
+  {
+    "id": "ja-standard-caring-0005",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "ちゃんと水分とってる？"
+  },
+  {
+    "id": "ja-standard-contextless-0006",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "あのスプーン、今日は静かね"
+  },
+  {
+    "id": "ja-standard-useful-0007",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "出かける前に鍵を確認しなさい"
+  },
+  {
+    "id": "ja-standard-admonition-0008",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "後でやるなら、いつやるかだけ決めなさい"
+  },
+  {
+    "id": "ja-standard-daily-0009",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "タオルは乾く場所にかけてね"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0010",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "向かいの植木鉢、髪型変えたみたい"
+  },
+  {
+    "id": "ja-standard-fake_tip-0011",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "月曜日は冷蔵庫に挨拶すると短くなるって"
+  },
+  {
+    "id": "ja-standard-caring-0012",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "疲れたら少し座りなさい"
+  },
+  {
+    "id": "ja-standard-contextless-0013",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "引き出しの二段目が呼んでたわよ"
+  },
+  {
+    "id": "ja-standard-useful-0014",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "充電器は同じ場所に戻すと楽よ"
+  },
+  {
+    "id": "ja-standard-admonition-0015",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "食べたお皿は運んでおきなさい"
+  },
+  {
+    "id": "ja-standard-daily-0016",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "今日は風が強そうね"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0017",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "駅前の鳩、係長になったらしいわ"
+  },
+  {
+    "id": "ja-standard-fake_tip-0018",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "みかんを転がすと予定が丸く収まるのよ"
+  },
+  {
+    "id": "ja-standard-caring-0019",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "無理して元気なふりしなくていいからね"
+  },
+  {
+    "id": "ja-standard-contextless-0020",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "その輪ゴム、まだやる気あるの？"
+  },
+  {
+    "id": "ja-standard-useful-0021",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "買い物は短いメモにすると忘れにくいわよ"
+  },
+  {
+    "id": "ja-standard-admonition-0022",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "画面ばかり見てないで目を休めなさい"
+  },
+  {
+    "id": "ja-standard-daily-0023",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "洗濯物、夜までには入れてね"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0024",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "三丁目の犬、最近姿勢がいいのよ"
+  },
+  {
+    "id": "ja-standard-fake_tip-0025",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "木曜日はコップを右に置くと金曜日が近いわ"
+  },
+  {
+    "id": "ja-standard-caring-0026",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "今日は早めに休めそう？"
+  },
+  {
+    "id": "ja-standard-contextless-0027",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "台所の時計、ちょっと急いでるわね"
+  },
+  {
+    "id": "ja-standard-useful-0028",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "傘は玄関に置いておくと忘れにくいわよ"
+  },
+  {
+    "id": "ja-standard-admonition-0029",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "返事だけじゃなくて手も動かしなさい"
+  },
+  {
+    "id": "ja-standard-daily-0030",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "ごみの日、念のため確認してね"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0031",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "公園のベンチ、昨日より落ち着いてたわ"
+  },
+  {
+    "id": "ja-standard-fake_tip-0032",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "パンの袋を丁寧に閉じると夢が長持ちするって"
+  },
+  {
+    "id": "ja-standard-caring-0033",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "何か食べた？"
+  },
+  {
+    "id": "ja-standard-contextless-0034",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "あの箱、捨てられたくなさそうね"
+  },
+  {
+    "id": "ja-standard-useful-0035",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "予定の十分前に支度を始めると安心よ"
+  },
+  {
+    "id": "ja-standard-admonition-0036",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "脱いだ服は椅子に住まわせないの"
+  },
+  {
+    "id": "ja-standard-daily-0037",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "空が暗いから傘を見ておいて"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0038",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "角の自転車、今日は機嫌が良さそう"
+  },
+  {
+    "id": "ja-standard-fake_tip-0039",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "金曜日は靴ひもを結び直すと週末が伸びるのよ"
+  },
+  {
+    "id": "ja-standard-caring-0040",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "寒くない？ 上着ある？"
+  },
+  {
+    "id": "ja-kansai-admonition-0001",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "靴、そろえときや"
+  },
+  {
+    "id": "ja-kansai-daily-0002",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "冷蔵庫、何取るか決めてから開けや"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0003",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "隣の猫、今日会議ある顔しとったで"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0004",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "靴下丸めたら運が四角なるらしいで"
+  },
+  {
+    "id": "ja-kansai-caring-0005",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "ちゃんと水分とってるか？"
+  },
+  {
+    "id": "ja-kansai-contextless-0006",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "あのスプーン、今日は静かやな"
+  },
+  {
+    "id": "ja-kansai-useful-0007",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "出る前に鍵、見ときや"
+  },
+  {
+    "id": "ja-kansai-admonition-0008",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "あとでやるんやったら、時間だけ決めとき"
+  },
+  {
+    "id": "ja-kansai-daily-0009",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "タオルは乾くとこにかけや"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0010",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "向かいの植木鉢、髪型変えたみたいやで"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0011",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "月曜は冷蔵庫に挨拶したら短なるねんて"
+  },
+  {
+    "id": "ja-kansai-caring-0012",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "疲れたらちょっと座りや"
+  },
+  {
+    "id": "ja-kansai-contextless-0013",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "引き出しの二段目、呼んどったで"
+  },
+  {
+    "id": "ja-kansai-useful-0014",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "充電器は同じ場所に戻したら楽やで"
+  },
+  {
+    "id": "ja-kansai-admonition-0015",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "食べた皿、運んどきや"
+  },
+  {
+    "id": "ja-kansai-daily-0016",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "今日は風強そうやな"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0017",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "駅前の鳩、係長なったらしいで"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0018",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "みかん転がしたら予定が丸う収まるんやて"
+  },
+  {
+    "id": "ja-kansai-caring-0019",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "無理して元気なふりせんでええよ"
+  },
+  {
+    "id": "ja-kansai-contextless-0020",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "その輪ゴム、まだやる気あるん？"
+  },
+  {
+    "id": "ja-kansai-useful-0021",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "買い物は短いメモにしたら忘れにくいで"
+  },
+  {
+    "id": "ja-kansai-admonition-0022",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "画面ばっかり見んと目ぇ休めや"
+  },
+  {
+    "id": "ja-kansai-daily-0023",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "洗濯物、夜までに入れときや"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0024",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "三丁目の犬、最近姿勢ええねん"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0025",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "木曜はコップ右に置いたら金曜が近なるで"
+  },
+  {
+    "id": "ja-kansai-caring-0026",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "今日は早めに休めそうか？"
+  },
+  {
+    "id": "ja-kansai-contextless-0027",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "台所の時計、ちょっと急いどるな"
+  },
+  {
+    "id": "ja-kansai-useful-0028",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "傘は玄関に置いとくと忘れにくいで"
+  },
+  {
+    "id": "ja-kansai-admonition-0029",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "返事だけやのうて手ぇも動かしや"
+  },
+  {
+    "id": "ja-kansai-daily-0030",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "ごみの日、いっぺん確認しとき"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0031",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "公園のベンチ、昨日より落ち着いとったで"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0032",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "パンの袋きれいに閉じたら夢が長持ちするんやて"
+  },
+  {
+    "id": "ja-kansai-caring-0033",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "なんか食べたか？"
+  },
+  {
+    "id": "ja-kansai-contextless-0034",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "あの箱、捨てられたくなさそうやな"
+  },
+  {
+    "id": "ja-kansai-useful-0035",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "予定の十分前に支度したら安心やで"
+  },
+  {
+    "id": "ja-kansai-admonition-0036",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "脱いだ服、椅子に住まわせんとき"
+  },
+  {
+    "id": "ja-kansai-daily-0037",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "空暗いし傘見ときや"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0038",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "角の自転車、今日は機嫌よさそうやで"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0039",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "金曜に靴ひも結び直したら週末伸びるねんて"
+  },
+  {
+    "id": "ja-kansai-caring-0040",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "寒ないか？ 上着あるか？"
+  },
+  {
+    "id": "en-neutral-admonition-0001",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Put your shoes where tomorrow-you can find them."
+  },
+  {
+    "id": "en-neutral-daily-0002",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Decide what you want before opening the fridge."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0003",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The neighbor's cat looked booked for a meeting today."
+  },
+  {
+    "id": "en-neutral-fake_tip-0004",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Rolling your socks makes your luck more rectangular."
+  },
+  {
+    "id": "en-neutral-caring-0005",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Have you had some water?"
+  },
+  {
+    "id": "en-neutral-contextless-0006",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "That spoon is being unusually quiet today, isn't it?"
+  },
+  {
+    "id": "en-neutral-useful-0007",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Check your keys before you head out."
+  },
+  {
+    "id": "en-neutral-admonition-0008",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "If it can wait, at least decide when you'll do it, love."
+  },
+  {
+    "id": "en-neutral-daily-0009",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Hang the towel somewhere it can actually dry, please."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0010",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The plant across the way seems to have changed its hairstyle."
+  },
+  {
+    "id": "en-neutral-fake_tip-0011",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Say hello to the fridge on Monday; the week feels shorter."
+  },
+  {
+    "id": "en-neutral-caring-0012",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Sit down for a minute if you're tired."
+  },
+  {
+    "id": "en-neutral-contextless-0013",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "The second drawer said it's been missing you."
+  },
+  {
+    "id": "en-neutral-useful-0014",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Keep the charger in one place and save yourself a search."
+  },
+  {
+    "id": "en-neutral-admonition-0015",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Bring your plate over when you're done."
+  },
+  {
+    "id": "en-neutral-daily-0016",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "It looks windy today."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0017",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The pigeon by the station has been promoted to supervisor."
+  },
+  {
+    "id": "en-neutral-fake_tip-0018",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Roll an orange and your plans become pleasingly rounded."
+  },
+  {
+    "id": "en-neutral-caring-0019",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "You don't have to pretend you're energetic for me."
+  },
+  {
+    "id": "en-neutral-contextless-0020",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "Does that rubber band still have a career plan?"
+  },
+  {
+    "id": "en-neutral-useful-0021",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "A short shopping list is easier to remember."
+  },
+  {
+    "id": "en-neutral-admonition-0022",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Do give your eyes a break from the screen."
+  },
+  {
+    "id": "en-neutral-daily-0023",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Bring the laundry in before the evening gets ideas."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0024",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The dog on Third Street has excellent posture lately."
+  },
+  {
+    "id": "en-neutral-fake_tip-0025",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Put your cup on the right on Thursday and Friday comes faster."
+  },
+  {
+    "id": "en-neutral-caring-0026",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Could you get some rest a little earlier tonight?"
+  },
+  {
+    "id": "en-neutral-contextless-0027",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "The kitchen clock seems to be in a hurry."
+  },
+  {
+    "id": "en-neutral-useful-0028",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Leave the umbrella by the door so it is harder to forget."
+  },
+  {
+    "id": "en-neutral-admonition-0029",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Don't just say okay; move one hand toward the task."
+  },
+  {
+    "id": "en-neutral-daily-0030",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Double-check which day the trash goes out."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0031",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The park bench seemed rather more settled than yesterday."
+  },
+  {
+    "id": "en-neutral-fake_tip-0032",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Close the bread bag neatly; your dreams stay fresh longer."
+  },
+  {
+    "id": "en-neutral-caring-0033",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Have you eaten something?"
+  },
+  {
+    "id": "en-neutral-contextless-0034",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "That box has quite a strong opinion about being recycled."
+  },
+  {
+    "id": "en-neutral-useful-0035",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Starting ten minutes early makes popping out much calmer."
+  },
+  {
+    "id": "en-neutral-admonition-0036",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Don't let your clothes take up permanent residence on the chair."
+  },
+  {
+    "id": "en-neutral-daily-0037",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "The sky looks dark, so locate your umbrella."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0038",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The bicycle on the corner seems rather cheerful today."
+  },
+  {
+    "id": "en-neutral-fake_tip-0039",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Retie your shoes on Friday and the weekend stretches a touch."
+  },
+  {
+    "id": "en-neutral-caring-0040",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Are you warm enough? Bring a layer."
+  },
+  {
+    "id": "en-british-admonition-0001",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Put your shoes where tomorrow-you can find them, love."
+  },
+  {
+    "id": "en-british-daily-0002",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Decide what you want before opening the fridge, please."
+  },
+  {
+    "id": "en-british-fictional_gossip-0003",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The neighbour's cat looked booked for a meeting today."
+  },
+  {
+    "id": "en-british-fake_tip-0004",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Rolling your socks makes your luck more rectangular, apparently."
+  },
+  {
+    "id": "en-british-caring-0005",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Have you had some water, love?"
+  },
+  {
+    "id": "en-british-contextless-0006",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "That spoon is being unusually quiet today."
+  },
+  {
+    "id": "en-british-useful-0007",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Check your keys before you pop out."
+  },
+  {
+    "id": "en-british-admonition-0008",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "If it can wait, at least decide when you'll do it."
+  },
+  {
+    "id": "en-british-daily-0009",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Hang the towel somewhere it can actually dry."
+  },
+  {
+    "id": "en-british-fictional_gossip-0010",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The plant over the road seems to have changed its hairstyle."
+  },
+  {
+    "id": "en-british-fake_tip-0011",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Say hello to the fridge on Monday and the week feels shorter."
+  },
+  {
+    "id": "en-british-caring-0012",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Have a proper sit-down if you're tired."
+  },
+  {
+    "id": "en-british-contextless-0013",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "The second drawer said it misses you."
+  },
+  {
+    "id": "en-british-useful-0014",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Keep the charger in one place and spare yourself the hunt."
+  },
+  {
+    "id": "en-british-admonition-0015",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Bring your plate through when you're done."
+  },
+  {
+    "id": "en-british-daily-0016",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "It looks rather windy today."
+  },
+  {
+    "id": "en-british-fictional_gossip-0017",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The pigeon by the station was promoted to supervisor."
+  },
+  {
+    "id": "en-british-fake_tip-0018",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Roll an orange and your plans become nicely rounded."
+  },
+  {
+    "id": "en-british-caring-0019",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "You needn't pretend you're energetic for me."
+  },
+  {
+    "id": "en-british-contextless-0020",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "Does that elastic band still have a career plan?"
+  },
+  {
+    "id": "en-british-useful-0021",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "A short shopping list is much easier to remember."
+  },
+  {
+    "id": "en-british-admonition-0022",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Give your eyes a break from the screen."
+  },
+  {
+    "id": "en-british-daily-0023",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Bring the washing in before the evening gets ideas."
+  },
+  {
+    "id": "en-british-fictional_gossip-0024",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The dog on the next street has excellent posture lately."
+  },
+  {
+    "id": "en-british-fake_tip-0025",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Put your mug on the right on Thursday and Friday comes faster."
+  },
+  {
+    "id": "en-british-caring-0026",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Could you get a bit more rest tonight?"
+  },
+  {
+    "id": "en-british-contextless-0027",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "The kitchen clock seems to be in rather a hurry."
+  },
+  {
+    "id": "en-british-useful-0028",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Leave the brolly by the door so it's harder to forget."
+  },
+  {
+    "id": "en-british-admonition-0029",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Don't just say right; move one hand towards the task."
+  },
+  {
+    "id": "en-british-daily-0030",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Double-check which day the bins go out."
+  },
+  {
+    "id": "en-british-fictional_gossip-0031",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The park bench seemed more settled than yesterday."
+  },
+  {
+    "id": "en-british-fake_tip-0032",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Close the bread bag neatly and your dreams stay fresh longer."
+  },
+  {
+    "id": "en-british-caring-0033",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Have you eaten something, love?"
+  },
+  {
+    "id": "en-british-contextless-0034",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "That box has a very strong opinion about being recycled."
+  },
+  {
+    "id": "en-british-useful-0035",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Starting ten minutes early makes leaving much calmer."
+  },
+  {
+    "id": "en-british-admonition-0036",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Don't let your clothes move permanently onto the chair."
+  },
+  {
+    "id": "en-british-daily-0037",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "The sky looks dark, so find your brolly."
+  },
+  {
+    "id": "en-british-fictional_gossip-0038",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The bicycle on the corner seems cheerful today."
+  },
+  {
+    "id": "en-british-fake_tip-0039",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Retie your shoes on Friday and the weekend stretches a little."
+  },
+  {
+    "id": "en-british-caring-0040",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Are you warm enough? Take a jumper."
+  }
+]
