@@ -28,8 +28,13 @@ flutter test
 flutter test integration_test
 dart run tool/validate_content.dart
 flutter build apk --debug
+flutter build apk --release
 flutter build appbundle --release
 ```
+
+Release builds require a dedicated Android signing key configured through the
+git-ignored `android/key.properties`. They never fall back to the debug signing
+configuration.
 
 ## Design notes and limitations
 
@@ -37,6 +42,7 @@ flutter build appbundle --release
 - The implementation decisions are `com.usisks.mothersword` for the application ID and `A Word from Mom` for the English product name.
 - Notifications are scheduled locally for 30 days using inexact alarms between 08:00 and 20:30. Android/OEM delay can still cause a later delivery; a strict 22:00 cutoff is not guaranteed.
 - The schedule is repaired on app launch/resume when stale, sparse, or after a detected time-zone change. If the time zone changes and the app is never reopened, old reservations may retain the former zone.
-- Some OEM battery policies may suppress notifications. Physical-device testing is required.
-- The 160 bundled messages are provisional and pass structural validation only. Human editorial review is required before publication.
-- Release currently uses the debug signing configuration solely so a local release AAB can be compiled. Store signing and release publication are intentionally outside this MVP implementation.
+- App launch, onboarding, notification receipt, notification text rendering, and notification actions have been confirmed on an Android physical device. The device model and OS version were not recorded, so this does not claim coverage of a specific model or Android version.
+- Some OEM battery policies may suppress or delay notifications. The physical-device result does not cover every manufacturer, Android version, reboot condition, or battery policy.
+- The 160 bundled messages passed automated validation and a human editorial and safety review before the v0.1.0 release.
+- Release artifacts use a dedicated Android release signing key. The key and its credentials are stored outside Git and must be backed up securely.
