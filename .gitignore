@@ -19,3 +19,5 @@ android/key.properties
 *.iml
 .DS_Store
 Thumbs.db
+
+/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
