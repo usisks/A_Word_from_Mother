@@ -1,16 +1,25 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2026-07-17
 
-### Implemented for v0.2.0 (release pending)
+### Added
 
 - Added configurable notification start and end times from 07:00 to 23:00 in 30-minute steps, with a three-hour minimum window.
 - Added quiet, normal, and chatty notification frequency choices while preserving the 90-minute minimum interval.
 - Added one in-app message that remains fixed during each app launch and is independent of notification history and scheduling.
-- Expanded bundled content candidates to 80 messages per voice and 320 total. The 160 new candidates still require the recorded human review before Release.
-- Added v0.1.0 settings migration without re-onboarding and pending-schedule reconstruction through `scheduleVersion`.
+- Expanded reviewed bundled content to 80 messages per voice and 320 total.
 
-v0.2.0 is not released. Human content audit and Android physical-device gates remain mandatory.
+### Changed
+
+- Migrated v0.1.0 settings without repeating onboarding.
+- Rebuilt pending notification schedules through `scheduleVersion` 2.
+
+### Verified
+
+- Completed human editorial, safety, language or dialect, and similarity review for all 160 new messages.
+- Confirmed the update path and required behavior on an Android physical device with no critical or major defect reported.
+- Verified dedicated Android Release signing for the APK and AAB.
+- Did not run the automated Android integration test because no supported target was connected. Product owner やまと waived that check for the v0.2.0 Release after accepting the manual Android result.
 
 ## 0.1.0 - 2026-07-16
 

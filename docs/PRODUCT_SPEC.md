@@ -23,7 +23,7 @@
 ---
 ## v0.2.0 product specification and implementation status
 
-The confirmed v0.2.0 behavior below is implemented on the `feature/v0.2.0` branch. It is not released: the new-message human audit, Android physical-device gate, and final Release gate remain incomplete. The public v0.1.0 Release therefore continues to use the fixed 08:00–20:30 notification scheduling and 2–4 daily requested-count behavior.
+The confirmed v0.2.0 behavior below is implemented and approved for Release. Reviewer やまと approved the 160 new messages and reported the manual Android device gate as passed on 2026-07-17. The automated Android integration test was not run because no supported target was connected; the product owner explicitly waived that check for this Release after accepting the manual result.
 
 | Area | v0.2.0 implemented requirement |
 | --- | --- |
