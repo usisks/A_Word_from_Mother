@@ -1118,5 +1118,1125 @@
     "voice": "british",
     "category": "caring",
     "body": "Are you warm enough? Take a jumper."
+  },
+  {
+    "id": "ja-standard-contextless-0041",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "玄関の靴が、今日は妙に整列しています。"
+  },
+  {
+    "id": "ja-standard-useful-0042",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "予定の時刻は、時計だけでなく行き先も確認しなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0043",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "後で片づけると言った箱、まだそこにありますよ。"
+  },
+  {
+    "id": "ja-standard-daily-0044",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "洗濯物を取り込むなら、空の様子も見ておきなさい。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0045",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "台所のふきんが、今朝は少し誇らしげでした。"
+  },
+  {
+    "id": "ja-standard-fake_tip-0046",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "靴下を左右そろえると、火曜日が少し素直になります。"
+  },
+  {
+    "id": "ja-standard-caring-0047",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "ひと息つく時間も、予定のうちに入れておきなさい。"
+  },
+  {
+    "id": "ja-standard-contextless-0048",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "冷蔵庫の奥で、輪ゴムが一本だけ待っています。"
+  },
+  {
+    "id": "ja-standard-useful-0049",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "明日の用事は、今のうちに一つだけ書いておきなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0050",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "机の端に積んだ紙を、家具だと思わないでください。"
+  },
+  {
+    "id": "ja-standard-daily-0051",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "飲み物を入れたなら、座る前に持ってきなさい。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0052",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "窓辺の植木鉢が、隣の鉢を少し気にしています。"
+  },
+  {
+    "id": "ja-standard-fake_tip-0053",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "傘をきれいに閉じると、雲が礼儀正しくなります。"
+  },
+  {
+    "id": "ja-standard-caring-0054",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "今日は頑張ったことを、一つくらい数えておきなさい。"
+  },
+  {
+    "id": "ja-standard-contextless-0055",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "その小さな紙袋、まだ出番を待っているようです。"
+  },
+  {
+    "id": "ja-standard-useful-0056",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "忘れそうな物は、玄関の近くへ置いておきなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0057",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "空のコップを、部屋の飾りにしないでください。"
+  },
+  {
+    "id": "ja-standard-daily-0058",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "帰りが遅くなるなら、上着を忘れないように。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0059",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "廊下の時計が、今日は五分ほど得意そうです。"
+  },
+  {
+    "id": "ja-standard-fake_tip-0060",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "引き出しを静かに閉めると、週末が逃げません。"
+  },
+  {
+    "id": "ja-standard-caring-0061",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "無理に元気な顔をしなくても、今日はそれで十分です。"
+  },
+  {
+    "id": "ja-standard-contextless-0062",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "棚の上のかごが、静かに仕事を増やしています。"
+  },
+  {
+    "id": "ja-standard-useful-0063",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "待ち合わせ場所は、出発前にもう一度見ておきなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0064",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "脱いだ服に、次の予定を決めさせないでください。"
+  },
+  {
+    "id": "ja-standard-daily-0065",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "買い物へ行くなら、冷蔵庫を先に見ておきなさい。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0066",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "郵便受けが、今日は何か言いたそうにしています。"
+  },
+  {
+    "id": "ja-standard-fake_tip-0067",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "スプーンをまっすぐ置くと、午後の話がまとまります。"
+  },
+  {
+    "id": "ja-standard-caring-0068",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "疲れた日は、できたことだけ覚えて帰りなさい。"
+  },
+  {
+    "id": "ja-standard-contextless-0069",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "テーブルの角が、さっきから妙に真面目です。"
+  },
+  {
+    "id": "ja-standard-useful-0070",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "急ぐ朝ほど、玄関で一度立ち止まって確認しなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0071",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "使ったはさみを、宝探しの景品にしないでください。"
+  },
+  {
+    "id": "ja-standard-daily-0072",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "窓を開けたなら、出かける前に思い出しなさい。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0073",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "洗面所の鏡が、今朝の髪形を覚えているそうです。"
+  },
+  {
+    "id": "ja-standard-fake_tip-0074",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fake_tip",
+    "body": "封筒の角をそろえると、返事が迷子になりません。"
+  },
+  {
+    "id": "ja-standard-caring-0075",
+    "language": "ja",
+    "voice": "standard",
+    "category": "caring",
+    "body": "ちゃんと休むのも、今日の大事な用事ですよ。"
+  },
+  {
+    "id": "ja-standard-contextless-0076",
+    "language": "ja",
+    "voice": "standard",
+    "category": "contextless",
+    "body": "あの空き箱は、まだ役目がある顔をしています。"
+  },
+  {
+    "id": "ja-standard-useful-0077",
+    "language": "ja",
+    "voice": "standard",
+    "category": "useful",
+    "body": "予定を詰める前に、移動する時間も足しておきなさい。"
+  },
+  {
+    "id": "ja-standard-admonition-0078",
+    "language": "ja",
+    "voice": "standard",
+    "category": "admonition",
+    "body": "読み終えた紙を、机の新しい地層にしないこと。"
+  },
+  {
+    "id": "ja-standard-daily-0079",
+    "language": "ja",
+    "voice": "standard",
+    "category": "daily",
+    "body": "帰ったら、まず持っている物を定位置へ置きなさい。"
+  },
+  {
+    "id": "ja-standard-fictional_gossip-0080",
+    "language": "ja",
+    "voice": "standard",
+    "category": "fictional_gossip",
+    "body": "ベランダの風が、洗濯ばさみに相談していました。"
+  },
+  {
+    "id": "ja-kansai-contextless-0041",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "その紙袋、まだ現役やいう顔してるで。"
+  },
+  {
+    "id": "ja-kansai-useful-0042",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "出かける前に、電気消したかひと回り見ときや。"
+  },
+  {
+    "id": "ja-kansai-admonition-0043",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "そのコップ、いつまで机に住まわせるん。"
+  },
+  {
+    "id": "ja-kansai-daily-0044",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "空が暗いし、傘あるか見てから出よし。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0045",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "台所の椅子が、今日はえらい機嫌ええらしいわ。"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0046",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "靴ひもをそろえたら、木曜がちょっと短なるで。"
+  },
+  {
+    "id": "ja-kansai-caring-0047",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "しんどい日は、ひと息ついてからでええんやで。"
+  },
+  {
+    "id": "ja-kansai-contextless-0048",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "冷蔵庫の端で、からしがじっと待ってるわ。"
+  },
+  {
+    "id": "ja-kansai-useful-0049",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "明日の服、朝に慌てんよう今のうちに決めとき。"
+  },
+  {
+    "id": "ja-kansai-admonition-0050",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "脱いだ服、椅子に全部任せたらあかんで。"
+  },
+  {
+    "id": "ja-kansai-daily-0051",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "飲みもん入れたんやったら、忘れんと持ってき。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0052",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "玄関の傘が、隣の傘と張り合うてたで。"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0053",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "引き出しを静かに閉めたら、月曜も静かになるで。"
+  },
+  {
+    "id": "ja-kansai-caring-0054",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "今日できたこと、一個くらい褒めときや。"
+  },
+  {
+    "id": "ja-kansai-contextless-0055",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "棚の上の箱、なんや妙に落ち着いてるな。"
+  },
+  {
+    "id": "ja-kansai-useful-0056",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "雨降りそうやったら、タオル一枚かばんに入れとき。"
+  },
+  {
+    "id": "ja-kansai-admonition-0057",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "使うたはさみ、かくれんぼさせんといて。"
+  },
+  {
+    "id": "ja-kansai-daily-0058",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "帰り遅なるんやったら、羽織るもん持ってきや。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0059",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "廊下の時計が、今日は先輩風ふかしてるわ。"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0060",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "スプーンを並べたら、午後の話が丸う収まるで。"
+  },
+  {
+    "id": "ja-kansai-caring-0061",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "元気なふりせんでも、今日はそれでええよ。"
+  },
+  {
+    "id": "ja-kansai-contextless-0062",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "カーテンの端っこ、今日はやけに張り切ってるな。"
+  },
+  {
+    "id": "ja-kansai-useful-0063",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "待ち合わせ場所、出る前にもっぺん見とき。"
+  },
+  {
+    "id": "ja-kansai-admonition-0064",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "読み終わった紙、机に積み上げんといてや。"
+  },
+  {
+    "id": "ja-kansai-daily-0065",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "買いもん行く前に、冷蔵庫の中を見ときや。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0066",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "台所のざるが、今日は帽子のつもりらしいで。"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0067",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "封筒の角そろえたら、返事が早歩きするで。"
+  },
+  {
+    "id": "ja-kansai-caring-0068",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "今日はよう動いたし、肩の力抜いてええで。"
+  },
+  {
+    "id": "ja-kansai-contextless-0069",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "靴箱の上の小銭、ずっと番しとるわ。"
+  },
+  {
+    "id": "ja-kansai-useful-0070",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "急ぐ朝ほど、玄関で一回確認しよし。"
+  },
+  {
+    "id": "ja-kansai-admonition-0071",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "空き箱を、部屋の主みたいに置いとかんといて。"
+  },
+  {
+    "id": "ja-kansai-daily-0072",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "窓開けたんやったら、出る前に閉めたか見てな。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0073",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "洗面所の石けんが、朝から泡の自慢してたで。"
+  },
+  {
+    "id": "ja-kansai-fake_tip-0074",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fake_tip",
+    "body": "冷蔵庫に挨拶したら、帰り道の信号が機嫌ようなるで。"
+  },
+  {
+    "id": "ja-kansai-caring-0075",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "caring",
+    "body": "休むんも、今日のちゃんとした用事やからな。"
+  },
+  {
+    "id": "ja-kansai-contextless-0076",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "contextless",
+    "body": "輪ゴム一本だけ、えらい堂々としてるわ。"
+  },
+  {
+    "id": "ja-kansai-useful-0077",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "useful",
+    "body": "予定には、移動する時間も入れとかなあかんで。"
+  },
+  {
+    "id": "ja-kansai-admonition-0078",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "admonition",
+    "body": "後でやる言うた用事、忘れたふりしたらあかんよ。"
+  },
+  {
+    "id": "ja-kansai-daily-0079",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "daily",
+    "body": "帰ったら、持ってるもん先に置いときや。"
+  },
+  {
+    "id": "ja-kansai-fictional_gossip-0080",
+    "language": "ja",
+    "voice": "kansai",
+    "category": "fictional_gossip",
+    "body": "台所の時計が、やかんの出番を気にしてたで。"
+  },
+  {
+    "id": "en-neutral-contextless-0041",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "That empty box still looks convinced it has a purpose."
+  },
+  {
+    "id": "en-neutral-useful-0042",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Check your keys, wallet, and charge before you leave."
+  },
+  {
+    "id": "en-neutral-admonition-0043",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "The cup on your desk is not a permanent resident."
+  },
+  {
+    "id": "en-neutral-daily-0044",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Look at the sky before deciding whether to carry an umbrella."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0045",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The kitchen chair seemed unusually confident this morning."
+  },
+  {
+    "id": "en-neutral-fake_tip-0046",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Match your socks and Tuesday becomes slightly more cooperative."
+  },
+  {
+    "id": "en-neutral-caring-0047",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Put a real break on the list, not just more tasks."
+  },
+  {
+    "id": "en-neutral-contextless-0048",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "One rubber band in the drawer is handling all the responsibility."
+  },
+  {
+    "id": "en-neutral-useful-0049",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Write down one thing for tomorrow while you remember it."
+  },
+  {
+    "id": "en-neutral-admonition-0050",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Do not turn that stack of papers into part of the furniture."
+  },
+  {
+    "id": "en-neutral-daily-0051",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Bring your drink with you before you get comfortable."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0052",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The plant by the window has been watching the other pot."
+  },
+  {
+    "id": "en-neutral-fake_tip-0053",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Close an umbrella neatly and the clouds become more polite."
+  },
+  {
+    "id": "en-neutral-caring-0054",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Count one thing you managed today. It still counts."
+  },
+  {
+    "id": "en-neutral-contextless-0055",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "The small paper bag is waiting for another assignment."
+  },
+  {
+    "id": "en-neutral-useful-0056",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Put the thing you might forget near the door."
+  },
+  {
+    "id": "en-neutral-admonition-0057",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Return the scissors instead of starting a household mystery."
+  },
+  {
+    "id": "en-neutral-daily-0058",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "If you will be out late, bring another layer."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0059",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The hallway clock looked proud of knowing the time."
+  },
+  {
+    "id": "en-neutral-fake_tip-0060",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Close the drawer quietly and the weekend will not run away."
+  },
+  {
+    "id": "en-neutral-caring-0061",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "You do not have to sound cheerful every minute."
+  },
+  {
+    "id": "en-neutral-contextless-0062",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "The basket on the shelf keeps quietly collecting jobs."
+  },
+  {
+    "id": "en-neutral-useful-0063",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Check the meeting place once more before you head out."
+  },
+  {
+    "id": "en-neutral-admonition-0064",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Do not let yesterday's clothes choose today's chair."
+  },
+  {
+    "id": "en-neutral-daily-0065",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "Check the fridge before adding more to the grocery list."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0066",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The mailbox looked like it had news but would not say what."
+  },
+  {
+    "id": "en-neutral-fake_tip-0067",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Line up the spoons and the afternoon will organize itself."
+  },
+  {
+    "id": "en-neutral-caring-0068",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "On a tiring day, remember what you finished."
+  },
+  {
+    "id": "en-neutral-contextless-0069",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "The corner of the table is taking itself very seriously."
+  },
+  {
+    "id": "en-neutral-useful-0070",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "A rushed morning still has time for one last check at the door."
+  },
+  {
+    "id": "en-neutral-admonition-0071",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "Put the tape back before it becomes a search project."
+  },
+  {
+    "id": "en-neutral-daily-0072",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "If you opened a window, remember it before leaving."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0073",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The bathroom mirror remembers this morning's hair."
+  },
+  {
+    "id": "en-neutral-fake_tip-0074",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fake_tip",
+    "body": "Square the corners of an envelope so the reply finds its way."
+  },
+  {
+    "id": "en-neutral-caring-0075",
+    "language": "en",
+    "voice": "neutral",
+    "category": "caring",
+    "body": "Resting properly is also something worth doing today."
+  },
+  {
+    "id": "en-neutral-contextless-0076",
+    "language": "en",
+    "voice": "neutral",
+    "category": "contextless",
+    "body": "That spare button is waiting for a very specific emergency."
+  },
+  {
+    "id": "en-neutral-useful-0077",
+    "language": "en",
+    "voice": "neutral",
+    "category": "useful",
+    "body": "Include travel time before filling the rest of your schedule."
+  },
+  {
+    "id": "en-neutral-admonition-0078",
+    "language": "en",
+    "voice": "neutral",
+    "category": "admonition",
+    "body": "The task you said you would do later still knows your name."
+  },
+  {
+    "id": "en-neutral-daily-0079",
+    "language": "en",
+    "voice": "neutral",
+    "category": "daily",
+    "body": "When you get home, put what you carried in its usual place."
+  },
+  {
+    "id": "en-neutral-fictional_gossip-0080",
+    "language": "en",
+    "voice": "neutral",
+    "category": "fictional_gossip",
+    "body": "The breeze on the balcony was consulting the clothespins."
+  },
+  {
+    "id": "en-british-contextless-0041",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "That old carrier bag still thinks it has an important post."
+  },
+  {
+    "id": "en-british-useful-0042",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Check your keys, purse, and phone before setting off."
+  },
+  {
+    "id": "en-british-admonition-0043",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "That mug has occupied the desk quite long enough."
+  },
+  {
+    "id": "en-british-daily-0044",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "The sky looks doubtful, so see where you left your brolly."
+  },
+  {
+    "id": "en-british-fictional_gossip-0045",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The kitchen chair was looking rather pleased with itself."
+  },
+  {
+    "id": "en-british-fake_tip-0046",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Pair your socks properly and Thursday becomes more civilised."
+  },
+  {
+    "id": "en-british-caring-0047",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Leave yourself time for a proper pause, love."
+  },
+  {
+    "id": "en-british-contextless-0048",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "One elastic band in that drawer is doing all the work."
+  },
+  {
+    "id": "en-british-useful-0049",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Jot down tomorrow's first job while it is in your head."
+  },
+  {
+    "id": "en-british-admonition-0050",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Please stop treating that pile of post as a side table."
+  },
+  {
+    "id": "en-british-daily-0051",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Do not leave your cuppa cooling in the kitchen."
+  },
+  {
+    "id": "en-british-fictional_gossip-0052",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The kettle has been keeping an eye on the biscuit tin."
+  },
+  {
+    "id": "en-british-fake_tip-0053",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Fold your brolly neatly and the drizzle learns some manners."
+  },
+  {
+    "id": "en-british-caring-0054",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Give yourself credit for getting through one awkward bit today."
+  },
+  {
+    "id": "en-british-contextless-0055",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "The tiny jar at the back seems remarkably sure of itself."
+  },
+  {
+    "id": "en-british-useful-0056",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Leave the thing you must remember beside the front door."
+  },
+  {
+    "id": "en-british-admonition-0057",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Put the scissors back; this is not a treasure hunt."
+  },
+  {
+    "id": "en-british-daily-0058",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "If you are staying out, take a cardigan with you."
+  },
+  {
+    "id": "en-british-fictional_gossip-0059",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The hall clock looked rather smug about being on time."
+  },
+  {
+    "id": "en-british-fake_tip-0060",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Shut the drawer gently and Saturday will stay put."
+  },
+  {
+    "id": "en-british-caring-0061",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "You needn't sound cheerful all day, you know."
+  },
+  {
+    "id": "en-british-contextless-0062",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "The basket on the shelf keeps volunteering for more clutter."
+  },
+  {
+    "id": "en-british-useful-0063",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Have the address handy before you start the journey."
+  },
+  {
+    "id": "en-british-admonition-0064",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Yesterday's clothes do not belong permanently on that chair."
+  },
+  {
+    "id": "en-british-daily-0065",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Have a look in the fridge before doing the food shop."
+  },
+  {
+    "id": "en-british-fictional_gossip-0066",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The letterbox looked ready to share a bit of news."
+  },
+  {
+    "id": "en-british-fake_tip-0067",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Balance a teaspoon on a saucer and the afternoon queues politely."
+  },
+  {
+    "id": "en-british-caring-0068",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "Go gently with yourself after a long sort of day."
+  },
+  {
+    "id": "en-british-contextless-0069",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "The corner of the table is being terribly earnest today."
+  },
+  {
+    "id": "en-british-useful-0070",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Even on a rushed morning, check once before leaving."
+  },
+  {
+    "id": "en-british-admonition-0071",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "Return the tape before the whole house has to look for it."
+  },
+  {
+    "id": "en-british-daily-0072",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "Before going out, make sure the washing is not still on the line."
+  },
+  {
+    "id": "en-british-fictional_gossip-0073",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The soap in the bathroom has been boasting about its bubbles."
+  },
+  {
+    "id": "en-british-fake_tip-0074",
+    "language": "en",
+    "voice": "british",
+    "category": "fake_tip",
+    "body": "Square the envelope and the reply will know where to go."
+  },
+  {
+    "id": "en-british-caring-0075",
+    "language": "en",
+    "voice": "british",
+    "category": "caring",
+    "body": "A proper rest is a perfectly respectable plan for today."
+  },
+  {
+    "id": "en-british-contextless-0076",
+    "language": "en",
+    "voice": "british",
+    "category": "contextless",
+    "body": "A lone peg in the cupboard seems to be awaiting promotion."
+  },
+  {
+    "id": "en-british-useful-0077",
+    "language": "en",
+    "voice": "british",
+    "category": "useful",
+    "body": "Allow for the journey before filling the rest of your diary."
+  },
+  {
+    "id": "en-british-admonition-0078",
+    "language": "en",
+    "voice": "british",
+    "category": "admonition",
+    "body": "That job you left until later has not forgotten you."
+  },
+  {
+    "id": "en-british-daily-0079",
+    "language": "en",
+    "voice": "british",
+    "category": "daily",
+    "body": "When you get in, put your things back in their usual places."
+  },
+  {
+    "id": "en-british-fictional_gossip-0080",
+    "language": "en",
+    "voice": "british",
+    "category": "fictional_gossip",
+    "body": "The washing-up bowl was having words with a teaspoon."
   }
 ]

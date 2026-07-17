@@ -29,13 +29,13 @@ void main() {
   const selector = ContentSelector();
   final random = _ZeroRandom();
 
-  test('bundled content loads with 40 messages per voice', () async {
+  test('bundled content loads with 80 messages per voice', () async {
     final messages = await const ContentLoader().load();
-    expect(messages, hasLength(160));
+    expect(messages, hasLength(320));
     for (final voice in MotherVoice.values) {
       expect(
         messages.where((message) => message.voice == voice),
-        hasLength(40),
+        hasLength(80),
       );
     }
   });
