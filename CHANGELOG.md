@@ -2,13 +2,15 @@
 
 ## Unreleased
 
-### Planned for v0.2.0 (not implemented)
+### Implemented for v0.2.0 (release pending)
 
-- Add configurable notification start and end times.
-- Add quiet, normal, and chatty notification frequency choices.
-- Add one in-app message that remains fixed during each app launch.
-- Expand bundled notification content to at least 80 messages per voice and 320 total, subject to required human review.
-- Migrate v0.1.0 settings and pending notification schedules without re-onboarding, rebuilding schedules through `scheduleVersion`.
+- Added configurable notification start and end times from 07:00 to 23:00 in 30-minute steps, with a three-hour minimum window.
+- Added quiet, normal, and chatty notification frequency choices while preserving the 90-minute minimum interval.
+- Added one in-app message that remains fixed during each app launch and is independent of notification history and scheduling.
+- Expanded bundled content candidates to 80 messages per voice and 320 total. The 160 new candidates still require the recorded human review before Release.
+- Added v0.1.0 settings migration without re-onboarding and pending-schedule reconstruction through `scheduleVersion`.
+
+v0.2.0 is not released. Human content audit and Android physical-device gates remain mandatory.
 
 ## 0.1.0 - 2026-07-16
 
