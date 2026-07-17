@@ -355,6 +355,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Messages from Mom'**
   String get notificationSwitchLabel;
+
+  /// No description provided for @byTheWay.
+  ///
+  /// In en, this message translates to:
+  /// **'By the way'**
+  String get byTheWay;
+
+  /// No description provided for @notificationTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification time'**
+  String get notificationTime;
+
+  /// No description provided for @notificationFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification frequency'**
+  String get notificationFrequency;
+
+  /// No description provided for @notificationStartTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Start time'**
+  String get notificationStartTime;
+
+  /// No description provided for @notificationEndTime.
+  ///
+  /// In en, this message translates to:
+  /// **'End time'**
+  String get notificationEndTime;
+
+  /// No description provided for @notificationWindowValue.
+  ///
+  /// In en, this message translates to:
+  /// **'{start} – {end}'**
+  String notificationWindowValue(String start, String end);
+
+  /// No description provided for @frequencyQuiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet'**
+  String get frequencyQuiet;
+
+  /// No description provided for @frequencyNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get frequencyNormal;
+
+  /// No description provided for @frequencyChatty.
+  ///
+  /// In en, this message translates to:
+  /// **'Chatty'**
+  String get frequencyChatty;
+
+  /// No description provided for @frequencyQuietDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'1–2 messages per day'**
+  String get frequencyQuietDescription;
+
+  /// No description provided for @frequencyNormalDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'2–4 messages per day'**
+  String get frequencyNormalDescription;
+
+  /// No description provided for @frequencyChattyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'4–6 messages per day'**
+  String get frequencyChattyDescription;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @notificationTimeSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose different start and end times.'**
+  String get notificationTimeSame;
+
+  /// No description provided for @notificationTimeOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'The start time must be before the end time.'**
+  String get notificationTimeOrder;
+
+  /// No description provided for @notificationTimeTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'The notification window must be at least 3 hours.'**
+  String get notificationTimeTooShort;
+
+  /// No description provided for @notificationTimeOutOfRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a time between 7:00 and 23:00.'**
+  String get notificationTimeOutOfRange;
+
+  /// No description provided for @notificationTimeInvalidStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a time in 30-minute steps.'**
+  String get notificationTimeInvalidStep;
+
+  /// No description provided for @notificationTimingNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Messages are scheduled a little earlier to reduce late delivery.'**
+  String get notificationTimingNote;
+
+  /// No description provided for @settingsSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The setting could not be saved.'**
+  String get settingsSaveFailed;
+
+  /// No description provided for @notificationSettingsApplyFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications were stopped because the new schedule could not be prepared.'**
+  String get notificationSettingsApplyFailed;
 }
 
 class _AppLocalizationsDelegate

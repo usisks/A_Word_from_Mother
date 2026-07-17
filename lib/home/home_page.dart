@@ -3,11 +3,18 @@ import 'package:flutter/material.dart';
 import '../app/app_view_state.dart';
 import '../l10n/app_localizations.dart';
 import '../settings/app_settings.dart';
+import '../settings/notification_frequency.dart';
+import '../settings/notification_window.dart';
+import 'in_app_message_card.dart';
+import 'notification_frequency_sheet.dart';
+import 'notification_window_sheet.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
     required this.state,
     required this.onNotificationChanged,
+    required this.onNotificationWindowChanged,
+    required this.onNotificationFrequencyChanged,
     required this.onEditLanguageVoice,
     required this.onOpenSystemSettings,
     required this.onRetry,
@@ -16,6 +23,10 @@ class HomePage extends StatelessWidget {
 
   final AppViewState state;
   final ValueChanged<bool> onNotificationChanged;
+  final Future<void> Function(NotificationWindow window)
+  onNotificationWindowChanged;
+  final Future<void> Function(NotificationFrequency frequency)
+  onNotificationFrequencyChanged;
   final VoidCallback onEditLanguageVoice;
   final VoidCallback onOpenSystemSettings;
   final VoidCallback onRetry;
@@ -65,7 +76,7 @@ class HomePage extends StatelessWidget {
                     ],
                     if (failed) ...[
                       const SizedBox(height: 8),
-                      Text(l10n.notificationUnavailable),
+                      Text(_failureMessage(l10n, state.userVisibleError)),
                       if (state.userVisibleError != null) ...[
                         const SizedBox(height: 4),
                         Text('${l10n.errorCode}: ${state.userVisibleError}'),
@@ -77,9 +88,34 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+            if (state.inAppMessage != null) ...[
+              InAppMessageCard(
+                message: state.inAppMessage!,
+                heading: l10n.byTheWay,
+              ),
+              const SizedBox(height: 20),
+            ],
             Text(
               l10n.settings,
               style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            ListTile(
+              minVerticalPadding: 12,
+              leading: const Icon(Icons.schedule),
+              title: Text(l10n.notificationTime),
+              subtitle: Text(
+                _windowValue(context, state.settings.notificationWindow),
+              ),
+              onTap: working ? null : () => _editWindow(context),
+            ),
+            ListTile(
+              minVerticalPadding: 12,
+              leading: const Icon(Icons.forum_outlined),
+              title: Text(l10n.notificationFrequency),
+              subtitle: Text(
+                _frequencyName(l10n, state.settings.notificationFrequency),
+              ),
+              onTap: working ? null : () => _editFrequency(context),
             ),
             ListTile(
               minVerticalPadding: 12,
@@ -123,4 +159,59 @@ class HomePage extends StatelessWidget {
         MotherVoice.enNeutral => l10n.enNeutral,
         MotherVoice.enBritish => l10n.enBritish,
       };
+
+  String _windowValue(BuildContext context, NotificationWindow window) {
+    final localizations = MaterialLocalizations.of(context);
+    final use24Hour = MediaQuery.alwaysUse24HourFormatOf(context);
+    final start = localizations.formatTimeOfDay(
+      TimeOfDay(
+        hour: window.startMinute ~/ 60,
+        minute: window.startMinute % 60,
+      ),
+      alwaysUse24HourFormat: use24Hour,
+    );
+    final end = localizations.formatTimeOfDay(
+      TimeOfDay(hour: window.endMinute ~/ 60, minute: window.endMinute % 60),
+      alwaysUse24HourFormat: use24Hour,
+    );
+    return AppLocalizations.of(context).notificationWindowValue(start, end);
+  }
+
+  String _frequencyName(
+    AppLocalizations l10n,
+    NotificationFrequency frequency,
+  ) => switch (frequency) {
+    NotificationFrequency.quiet => l10n.frequencyQuiet,
+    NotificationFrequency.normal => l10n.frequencyNormal,
+    NotificationFrequency.chatty => l10n.frequencyChatty,
+  };
+
+  String _failureMessage(AppLocalizations l10n, String? errorCode) =>
+      switch (errorCode) {
+        'settings_write_failed' => l10n.settingsSaveFailed,
+        'notification_settings_apply_failed' =>
+          l10n.notificationSettingsApplyFailed,
+        _ => l10n.notificationUnavailable,
+      };
+
+  Future<void> _editWindow(BuildContext context) async {
+    final selected = await showModalBottomSheet<NotificationWindow>(
+      context: context,
+      isScrollControlled: true,
+      builder: (_) => NotificationWindowSheet(
+        initialValue: state.settings.notificationWindow,
+      ),
+    );
+    if (selected != null) await onNotificationWindowChanged(selected);
+  }
+
+  Future<void> _editFrequency(BuildContext context) async {
+    final selected = await showModalBottomSheet<NotificationFrequency>(
+      context: context,
+      builder: (_) => NotificationFrequencySheet(
+        initialValue: state.settings.notificationFrequency,
+      ),
+    );
+    if (selected != null) await onNotificationFrequencyChanged(selected);
+  }
 }

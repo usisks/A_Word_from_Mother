@@ -139,4 +139,73 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get notificationSwitchLabel => '母からの通知';
+
+  @override
+  String get byTheWay => 'ところで';
+
+  @override
+  String get notificationTime => '通知時間';
+
+  @override
+  String get notificationFrequency => '通知頻度';
+
+  @override
+  String get notificationStartTime => '開始時刻';
+
+  @override
+  String get notificationEndTime => '終了時刻';
+
+  @override
+  String notificationWindowValue(String start, String end) {
+    return '$start 〜 $end';
+  }
+
+  @override
+  String get frequencyQuiet => '静かめ';
+
+  @override
+  String get frequencyNormal => '普通';
+
+  @override
+  String get frequencyChatty => 'うるさめ';
+
+  @override
+  String get frequencyQuietDescription => '1〜2件／日';
+
+  @override
+  String get frequencyNormalDescription => '2〜4件／日';
+
+  @override
+  String get frequencyChattyDescription => '4〜6件／日';
+
+  @override
+  String get save => '保存';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get notificationTimeSame => '開始時刻と終了時刻は別の時刻にしてください。';
+
+  @override
+  String get notificationTimeOrder => '開始時刻は終了時刻より前にしてください。';
+
+  @override
+  String get notificationTimeTooShort => '通知時間は3時間以上にしてください。';
+
+  @override
+  String get notificationTimeOutOfRange => '07:00から23:00の範囲で設定してください。';
+
+  @override
+  String get notificationTimeInvalidStep => '時刻は30分単位で設定してください。';
+
+  @override
+  String get notificationTimingNote => '通知が終了時刻より後に届きにくいよう、少し早めまでに予約します。';
+
+  @override
+  String get settingsSaveFailed => '設定を保存できませんでした。';
+
+  @override
+  String get notificationSettingsApplyFailed =>
+      '新しい設定で通知を準備できなかったため、通知を停止しました。';
 }

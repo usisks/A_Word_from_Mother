@@ -1,6 +1,7 @@
 import 'package:a_word_from_mother/app/app_settings_controller.dart';
 import 'package:a_word_from_mother/app/mother_word_app.dart';
 import 'package:a_word_from_mother/content/in_app_message_selector.dart';
+import 'package:a_word_from_mother/content/mother_message.dart';
 import 'package:a_word_from_mother/core/clock.dart';
 import 'package:a_word_from_mother/core/random_source.dart';
 import 'package:a_word_from_mother/notifications/notification_gateway.dart';
@@ -49,6 +50,16 @@ class _Random implements RandomSource {
   int nextInt(int max) => 0;
 }
 
+const _messages = <MotherMessage>[
+  MotherMessage(
+    id: 'ja-standard-daily-0001',
+    language: AppLanguage.ja,
+    voice: MotherVoice.jaStandard,
+    category: MessageCategory.daily,
+    body: '統合テストの一言',
+  ),
+];
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -61,13 +72,13 @@ void main() {
       gateway: gateway,
       scheduler: NotificationScheduler(
         gateway: gateway,
-        messages: const [],
+        messages: _messages,
         timeZoneService: TimeZoneService(),
         clock: _Clock(),
         random: _Random(),
       ),
       inAppMessageSelector: InAppMessageSelector(
-        messages: const [],
+        messages: _messages,
         random: _Random(),
       ),
     );
@@ -86,5 +97,16 @@ void main() {
 
     expect(find.text('母からの通知'), findsWidgets);
     expect(find.byType(Switch), findsOneWidget);
+    expect(find.text('統合テストの一言'), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.schedule));
+    await tester.pumpAndSettle();
+    expect(find.byType(DropdownButtonFormField<int>), findsNWidgets(2));
+    await tester.tap(find.text('キャンセル'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byIcon(Icons.forum_outlined));
+    await tester.pumpAndSettle();
+    expect(find.byType(RadioListTile), findsNWidgets(3));
   });
 }

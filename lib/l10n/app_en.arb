@@ -42,5 +42,33 @@
   "startupError": "The app data could not be loaded.",
   "notificationUnavailable": "Notifications are temporarily unavailable. You can continue using the app with notifications off.",
   "errorCode": "Error code",
-  "notificationSwitchLabel": "Messages from Mom"
+  "notificationSwitchLabel": "Messages from Mom",
+  "byTheWay": "By the way",
+  "notificationTime": "Notification time",
+  "notificationFrequency": "Notification frequency",
+  "notificationStartTime": "Start time",
+  "notificationEndTime": "End time",
+  "notificationWindowValue": "{start} – {end}",
+  "@notificationWindowValue": {
+    "placeholders": {
+      "start": {"type": "String"},
+      "end": {"type": "String"}
+    }
+  },
+  "frequencyQuiet": "Quiet",
+  "frequencyNormal": "Normal",
+  "frequencyChatty": "Chatty",
+  "frequencyQuietDescription": "1–2 messages per day",
+  "frequencyNormalDescription": "2–4 messages per day",
+  "frequencyChattyDescription": "4–6 messages per day",
+  "save": "Save",
+  "cancel": "Cancel",
+  "notificationTimeSame": "Choose different start and end times.",
+  "notificationTimeOrder": "The start time must be before the end time.",
+  "notificationTimeTooShort": "The notification window must be at least 3 hours.",
+  "notificationTimeOutOfRange": "Choose a time between 7:00 and 23:00.",
+  "notificationTimeInvalidStep": "Choose a time in 30-minute steps.",
+  "notificationTimingNote": "Messages are scheduled a little earlier to reduce late delivery.",
+  "settingsSaveFailed": "The setting could not be saved.",
+  "notificationSettingsApplyFailed": "Notifications were stopped because the new schedule could not be prepared."
 }

@@ -147,4 +147,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationSwitchLabel => 'Messages from Mom';
+
+  @override
+  String get byTheWay => 'By the way';
+
+  @override
+  String get notificationTime => 'Notification time';
+
+  @override
+  String get notificationFrequency => 'Notification frequency';
+
+  @override
+  String get notificationStartTime => 'Start time';
+
+  @override
+  String get notificationEndTime => 'End time';
+
+  @override
+  String notificationWindowValue(String start, String end) {
+    return '$start – $end';
+  }
+
+  @override
+  String get frequencyQuiet => 'Quiet';
+
+  @override
+  String get frequencyNormal => 'Normal';
+
+  @override
+  String get frequencyChatty => 'Chatty';
+
+  @override
+  String get frequencyQuietDescription => '1–2 messages per day';
+
+  @override
+  String get frequencyNormalDescription => '2–4 messages per day';
+
+  @override
+  String get frequencyChattyDescription => '4–6 messages per day';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get notificationTimeSame => 'Choose different start and end times.';
+
+  @override
+  String get notificationTimeOrder =>
+      'The start time must be before the end time.';
+
+  @override
+  String get notificationTimeTooShort =>
+      'The notification window must be at least 3 hours.';
+
+  @override
+  String get notificationTimeOutOfRange =>
+      'Choose a time between 7:00 and 23:00.';
+
+  @override
+  String get notificationTimeInvalidStep => 'Choose a time in 30-minute steps.';
+
+  @override
+  String get notificationTimingNote =>
+      'Messages are scheduled a little earlier to reduce late delivery.';
+
+  @override
+  String get settingsSaveFailed => 'The setting could not be saved.';
+
+  @override
+  String get notificationSettingsApplyFailed =>
+      'Notifications were stopped because the new schedule could not be prepared.';
 }

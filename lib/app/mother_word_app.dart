@@ -91,6 +91,9 @@ class _MotherWordAppState extends State<MotherWordApp>
     AppPhase.home => HomePage(
       state: state,
       onNotificationChanged: widget.controller.setNotificationsEnabled,
+      onNotificationWindowChanged: widget.controller.updateNotificationWindow,
+      onNotificationFrequencyChanged:
+          widget.controller.updateNotificationFrequency,
       onEditLanguageVoice: widget.controller.editLanguageAndVoice,
       onOpenSystemSettings: widget.controller.openSystemNotificationSettings,
       onRetry: widget.controller.retryScheduling,
