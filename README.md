@@ -36,6 +36,10 @@ Release builds require a dedicated Android signing key configured through the
 git-ignored `android/key.properties`. They never fall back to the debug signing
 configuration.
 
+## v0.2.0 design status
+
+v0.2.0 is in the design-documentation stage and is not implemented or released. The v0.1.0 behavior described below remains the current behavior. Planned requirements and implementation boundaries are recorded in the [product specification](docs/PRODUCT_SPEC.md) and [v0.2.0 detailed design](docs/V0.2.0_DETAILED_DESIGN.md).
+
 ## Design notes and limitations
 
 - `docs/PRODUCT_SPEC.md` is the source of truth.

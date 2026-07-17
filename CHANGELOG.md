@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Planned for v0.2.0 (not implemented)
+
+- Add configurable notification start and end times.
+- Add quiet, normal, and chatty notification frequency choices.
+- Add one in-app message that remains fixed during each app launch.
+- Expand bundled notification content to at least 80 messages per voice and 320 total, subject to required human review.
+- Migrate v0.1.0 settings and pending notification schedules without re-onboarding, rebuilding schedules through `scheduleVersion`.
+
 ## 0.1.0 - 2026-07-16
 
 - Created the Android-only Flutter MVP foundation.
