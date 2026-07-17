@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../content/in_app_message_selector.dart';
+import '../content/mother_message.dart';
 import '../core/diagnostics.dart';
 import '../notifications/notification_gateway.dart';
 import '../notifications/notification_scheduler.dart';
@@ -14,13 +16,20 @@ class AppSettingsController extends ChangeNotifier {
     required SettingsStore store,
     required NotificationGateway gateway,
     required NotificationScheduler scheduler,
-  }) : this._(store, gateway, scheduler);
+    required InAppMessageSelector inAppMessageSelector,
+  }) : this._(store, gateway, scheduler, inAppMessageSelector);
 
-  AppSettingsController._(this._store, this._gateway, this._scheduler);
+  AppSettingsController._(
+    this._store,
+    this._gateway,
+    this._scheduler,
+    this._inAppMessageSelector,
+  );
 
   final SettingsStore _store;
   final NotificationGateway _gateway;
   final NotificationScheduler _scheduler;
+  final InAppMessageSelector _inAppMessageSelector;
   AppViewState _state = AppViewState.loading();
   bool _editing = false;
   bool _notificationInitialized = false;
@@ -68,6 +77,9 @@ class AppSettingsController extends ChangeNotifier {
           : SchedulingState.failed,
       userVisibleError: startupWarning,
     );
+    if (settings.onboardingCompleted) {
+      await _refreshInAppMessage(settings: settings);
+    }
     notifyListeners();
     if (settings.notificationsEnabled && allowed == true) {
       await _refreshSchedule(rebuild: false);
@@ -99,6 +111,7 @@ class AppSettingsController extends ChangeNotifier {
       _editing = false;
       if (settings.notificationsEnabled) await _refreshSchedule(rebuild: true);
       _state = _state.copyWith(phase: AppPhase.home);
+      await _refreshInAppMessage(settings: _state.settings);
     } else {
       _state = _state.copyWith(phase: AppPhase.permissionExplanation);
     }
@@ -119,6 +132,8 @@ class AppSettingsController extends ChangeNotifier {
     _state = _state.copyWith(settings: settings, phase: AppPhase.home);
     notifyListeners();
     if (settings.notificationsEnabled) await _refreshSchedule(rebuild: true);
+    await _refreshInAppMessage(settings: _state.settings);
+    notifyListeners();
   }
 
   Future<void> completeOnboardingWithoutNotifications() async {
@@ -133,6 +148,7 @@ class AppSettingsController extends ChangeNotifier {
       scheduling: SchedulingState.idle,
       clearError: true,
     );
+    await _refreshInAppMessage(settings: settings);
     notifyListeners();
   }
 
@@ -175,6 +191,7 @@ class AppSettingsController extends ChangeNotifier {
           scheduling: SchedulingState.idle,
           userVisibleError: 'permission_denied',
         );
+        await _refreshInAppMessage(settings: settings);
         notifyListeners();
         return;
       }
@@ -190,6 +207,7 @@ class AppSettingsController extends ChangeNotifier {
         scheduling: SchedulingState.idle,
         clearError: true,
       );
+      await _refreshInAppMessage(settings: settings);
     } on Object catch (error, stack) {
       logFailure('schedule_failed', error, stack);
       await _cancelBestEffort();
@@ -204,6 +222,7 @@ class AppSettingsController extends ChangeNotifier {
         scheduling: SchedulingState.failed,
         userVisibleError: 'schedule_failed',
       );
+      await _refreshInAppMessage(settings: settings);
     }
     notifyListeners();
   }
@@ -441,6 +460,30 @@ class AppSettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
+  MotherMessage? _selectInAppMessage(AppSettings settings) =>
+      _inAppMessageSelector.select(
+        language: settings.language,
+        voice: settings.voice,
+        previousMessageId: settings.lastInAppMessageId,
+      );
+
+  Future<void> _refreshInAppMessage({required AppSettings settings}) async {
+    final message = _selectInAppMessage(settings);
+    _state = _state.copyWith(
+      inAppMessage: message,
+      clearInAppMessage: message == null,
+    );
+    if (message == null) return;
+
+    final settingsWithId = settings.copyWith(lastInAppMessageId: message.id);
+    try {
+      await _store.write(settingsWithId);
+      _state = _state.copyWith(settings: settingsWithId);
+    } on Object catch (error, stackTrace) {
+      logFailure('in_app_message_id_write_failed', error, stackTrace);
+    }
+  }
+
   AppSettings _settingsAfterSchedule(ScheduleSummary summary) =>
       _state.settings.copyWith(
         recentContentIds: summary.recentContentIds,
@@ -499,6 +542,9 @@ class AppSettingsController extends ChangeNotifier {
       scheduling: SchedulingState.failed,
       userVisibleError: errorCode,
     );
+    if (completeOnboarding) {
+      await _refreshInAppMessage(settings: settings);
+    }
     notifyListeners();
   }
 

@@ -1,5 +1,6 @@
 import 'package:a_word_from_mother/app/app_settings_controller.dart';
 import 'package:a_word_from_mother/app/mother_word_app.dart';
+import 'package:a_word_from_mother/content/in_app_message_selector.dart';
 import 'package:a_word_from_mother/core/clock.dart';
 import 'package:a_word_from_mother/core/random_source.dart';
 import 'package:a_word_from_mother/notifications/notification_gateway.dart';
@@ -63,6 +64,10 @@ void main() {
         messages: const [],
         timeZoneService: TimeZoneService(),
         clock: _Clock(),
+        random: _Random(),
+      ),
+      inAppMessageSelector: InAppMessageSelector(
+        messages: const [],
         random: _Random(),
       ),
     );
