@@ -20,8 +20,8 @@ Run `dart run tool/validate_content.dart` after every edit. Passing validation i
 
 The 160 v0.1.0 messages (40 per voice) completed human editorial and safety review in addition to automated validation. Their IDs are permanent: do not rename them or reuse any missing ID.
 
-### v0.2.0 planned expansion
+### v0.2.0 reviewed expansion
 
-v0.2.0 is not implemented yet. Its release target is at least 80 messages for each voice and at least 320 messages in total. Continue each existing ID sequence from its current maximum; never reuse a gap.
+v0.2.0 adds 160 messages, bringing the bundle to 80 messages per voice and 320 messages in total. The original 160 v0.1.0 entries and their IDs remain unchanged. New IDs continue each voice sequence from `0041` through `0080`; never rename an ID or reuse a gap.
 
-Automated validation alone does not authorize new copy for publication. Every new or changed v0.2.0 message requires human editorial, safety, language, and dialect review before it can be included in a Release.
+Reviewer やまと approved all 160 v0.2.0 additions on 2026-07-17 after editorial, safety, language or dialect, and duplication or similarity review. The result is recorded in [`V0.2.0_CONTENT_AUDIT.md`](V0.2.0_CONTENT_AUDIT.md). Automated validation remains mandatory after any content change, and future additions or edits require another human review.

@@ -42,5 +42,33 @@
   "startupError": "アプリのデータを読み込めませんでした。",
   "notificationUnavailable": "通知機能を一時的に利用できません。通知をオフにしたままアプリを利用できます。",
   "errorCode": "エラーコード",
-  "notificationSwitchLabel": "母からの通知"
+  "notificationSwitchLabel": "母からの通知",
+  "byTheWay": "ところで",
+  "notificationTime": "通知時間",
+  "notificationFrequency": "通知頻度",
+  "notificationStartTime": "開始時刻",
+  "notificationEndTime": "終了時刻",
+  "notificationWindowValue": "{start} 〜 {end}",
+  "@notificationWindowValue": {
+    "placeholders": {
+      "start": {"type": "String"},
+      "end": {"type": "String"}
+    }
+  },
+  "frequencyQuiet": "静かめ",
+  "frequencyNormal": "普通",
+  "frequencyChatty": "うるさめ",
+  "frequencyQuietDescription": "1〜2件／日",
+  "frequencyNormalDescription": "2〜4件／日",
+  "frequencyChattyDescription": "4〜6件／日",
+  "save": "保存",
+  "cancel": "キャンセル",
+  "notificationTimeSame": "開始時刻と終了時刻は別の時刻にしてください。",
+  "notificationTimeOrder": "開始時刻は終了時刻より前にしてください。",
+  "notificationTimeTooShort": "通知時間は3時間以上にしてください。",
+  "notificationTimeOutOfRange": "07:00から23:00の範囲で設定してください。",
+  "notificationTimeInvalidStep": "時刻は30分単位で設定してください。",
+  "notificationTimingNote": "通知が終了時刻より後に届きにくいよう、少し早めまでに予約します。",
+  "settingsSaveFailed": "設定を保存できませんでした。",
+  "notificationSettingsApplyFailed": "新しい設定で通知を準備できなかったため、通知を停止しました。"
 }

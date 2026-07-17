@@ -1,9 +1,13 @@
 import 'package:flutter/foundation.dart';
 
+import '../content/in_app_message_selector.dart';
+import '../content/mother_message.dart';
 import '../core/diagnostics.dart';
 import '../notifications/notification_gateway.dart';
 import '../notifications/notification_scheduler.dart';
 import '../settings/app_settings.dart';
+import '../settings/notification_frequency.dart';
+import '../settings/notification_window.dart';
 import '../settings/settings_store.dart';
 import 'app_view_state.dart';
 
@@ -12,13 +16,20 @@ class AppSettingsController extends ChangeNotifier {
     required SettingsStore store,
     required NotificationGateway gateway,
     required NotificationScheduler scheduler,
-  }) : this._(store, gateway, scheduler);
+    required InAppMessageSelector inAppMessageSelector,
+  }) : this._(store, gateway, scheduler, inAppMessageSelector);
 
-  AppSettingsController._(this._store, this._gateway, this._scheduler);
+  AppSettingsController._(
+    this._store,
+    this._gateway,
+    this._scheduler,
+    this._inAppMessageSelector,
+  );
 
   final SettingsStore _store;
   final NotificationGateway _gateway;
   final NotificationScheduler _scheduler;
+  final InAppMessageSelector _inAppMessageSelector;
   AppViewState _state = AppViewState.loading();
   bool _editing = false;
   bool _notificationInitialized = false;
@@ -66,6 +77,9 @@ class AppSettingsController extends ChangeNotifier {
           : SchedulingState.failed,
       userVisibleError: startupWarning,
     );
+    if (settings.onboardingCompleted) {
+      await _refreshInAppMessage(settings: settings);
+    }
     notifyListeners();
     if (settings.notificationsEnabled && allowed == true) {
       await _refreshSchedule(rebuild: false);
@@ -97,6 +111,7 @@ class AppSettingsController extends ChangeNotifier {
       _editing = false;
       if (settings.notificationsEnabled) await _refreshSchedule(rebuild: true);
       _state = _state.copyWith(phase: AppPhase.home);
+      await _refreshInAppMessage(settings: _state.settings);
     } else {
       _state = _state.copyWith(phase: AppPhase.permissionExplanation);
     }
@@ -117,6 +132,8 @@ class AppSettingsController extends ChangeNotifier {
     _state = _state.copyWith(settings: settings, phase: AppPhase.home);
     notifyListeners();
     if (settings.notificationsEnabled) await _refreshSchedule(rebuild: true);
+    await _refreshInAppMessage(settings: _state.settings);
+    notifyListeners();
   }
 
   Future<void> completeOnboardingWithoutNotifications() async {
@@ -131,6 +148,7 @@ class AppSettingsController extends ChangeNotifier {
       scheduling: SchedulingState.idle,
       clearError: true,
     );
+    await _refreshInAppMessage(settings: settings);
     notifyListeners();
   }
 
@@ -173,6 +191,7 @@ class AppSettingsController extends ChangeNotifier {
           scheduling: SchedulingState.idle,
           userVisibleError: 'permission_denied',
         );
+        await _refreshInAppMessage(settings: settings);
         notifyListeners();
         return;
       }
@@ -181,13 +200,14 @@ class AppSettingsController extends ChangeNotifier {
       final settings = _settingsAfterSchedule(
         summary,
       ).copyWith(onboardingCompleted: true, notificationsEnabled: true);
-      await _persistAndVerify(settings, expectedNotificationsEnabled: true);
+      await _persistAndVerify(settings);
       _state = _state.copyWith(
         phase: AppPhase.home,
         settings: settings,
         scheduling: SchedulingState.idle,
         clearError: true,
       );
+      await _refreshInAppMessage(settings: settings);
     } on Object catch (error, stack) {
       logFailure('schedule_failed', error, stack);
       await _cancelBestEffort();
@@ -202,6 +222,7 @@ class AppSettingsController extends ChangeNotifier {
         scheduling: SchedulingState.failed,
         userVisibleError: 'schedule_failed',
       );
+      await _refreshInAppMessage(settings: settings);
     }
     notifyListeners();
   }
@@ -221,7 +242,7 @@ class AppSettingsController extends ChangeNotifier {
         await _scheduler.cancelAll();
       }
       final settings = _state.settings.copyWith(notificationsEnabled: false);
-      await _persistAndVerify(settings, expectedNotificationsEnabled: false);
+      await _persistAndVerify(settings);
       _state = _state.copyWith(
         settings: settings,
         scheduling: SchedulingState.idle,
@@ -334,6 +355,22 @@ class AppSettingsController extends ChangeNotifier {
   Future<void> openSystemNotificationSettings() =>
       _gateway.openSystemNotificationSettings();
 
+  Future<void> updateNotificationWindow(NotificationWindow window) async {
+    if (_state.scheduling == SchedulingState.working) return;
+    await _applyScheduleAffectingSettings(
+      _state.settings.copyWith(notificationWindow: window),
+    );
+  }
+
+  Future<void> updateNotificationFrequency(
+    NotificationFrequency frequency,
+  ) async {
+    if (_state.scheduling == SchedulingState.working) return;
+    await _applyScheduleAffectingSettings(
+      _state.settings.copyWith(notificationFrequency: frequency),
+    );
+  }
+
   void _setWorking() {
     _state = _state.copyWith(
       scheduling: SchedulingState.working,
@@ -369,12 +406,91 @@ class AppSettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<AppSettings> _scheduleWithSettings(AppSettings candidate) async {
+    final summary = await _scheduler.rebuild(settings: candidate);
+    return candidate.copyWith(
+      recentContentIds: summary.recentContentIds,
+      recentCategories: summary.recentCategories,
+      lastScheduleRefreshAt: DateTime.now(),
+      lastTimeZoneId: summary.timeZoneId,
+      scheduleVersion: summary.scheduleVersion,
+    );
+  }
+
+  Future<void> _applyScheduleAffectingSettings(AppSettings candidate) async {
+    _setWorking();
+    if (!candidate.notificationsEnabled) {
+      try {
+        await _persistAndVerify(candidate);
+        _state = _state.copyWith(
+          settings: candidate,
+          scheduling: SchedulingState.idle,
+          clearError: true,
+        );
+      } on Object catch (error, stackTrace) {
+        logFailure('settings_write_failed', error, stackTrace);
+        _state = _state.copyWith(
+          scheduling: SchedulingState.failed,
+          userVisibleError: 'settings_write_failed',
+        );
+      }
+      notifyListeners();
+      return;
+    }
+
+    try {
+      final scheduled = await _scheduleWithSettings(candidate);
+      await _persistAndVerify(scheduled);
+      _state = _state.copyWith(
+        settings: scheduled,
+        scheduling: SchedulingState.idle,
+        clearError: true,
+      );
+    } on Object catch (error, stackTrace) {
+      logFailure('notification_settings_apply_failed', error, stackTrace);
+      await _cancelBestEffort();
+      final safeSettings = candidate.copyWith(notificationsEnabled: false);
+      await _persistBestEffort(safeSettings);
+      _state = _state.copyWith(
+        settings: safeSettings,
+        scheduling: SchedulingState.failed,
+        userVisibleError: 'notification_settings_apply_failed',
+      );
+    }
+    notifyListeners();
+  }
+
+  MotherMessage? _selectInAppMessage(AppSettings settings) =>
+      _inAppMessageSelector.select(
+        language: settings.language,
+        voice: settings.voice,
+        previousMessageId: settings.lastInAppMessageId,
+      );
+
+  Future<void> _refreshInAppMessage({required AppSettings settings}) async {
+    final message = _selectInAppMessage(settings);
+    _state = _state.copyWith(
+      inAppMessage: message,
+      clearInAppMessage: message == null,
+    );
+    if (message == null) return;
+
+    final settingsWithId = settings.copyWith(lastInAppMessageId: message.id);
+    try {
+      await _store.write(settingsWithId);
+      _state = _state.copyWith(settings: settingsWithId);
+    } on Object catch (error, stackTrace) {
+      logFailure('in_app_message_id_write_failed', error, stackTrace);
+    }
+  }
+
   AppSettings _settingsAfterSchedule(ScheduleSummary summary) =>
       _state.settings.copyWith(
         recentContentIds: summary.recentContentIds,
         recentCategories: summary.recentCategories,
         lastScheduleRefreshAt: DateTime.now(),
         lastTimeZoneId: summary.timeZoneId,
+        scheduleVersion: summary.scheduleVersion,
       );
 
   Future<void> _persist(AppSettings settings) => _store.write(settings);
@@ -426,6 +542,9 @@ class AppSettingsController extends ChangeNotifier {
       scheduling: SchedulingState.failed,
       userVisibleError: errorCode,
     );
+    if (completeOnboarding) {
+      await _refreshInAppMessage(settings: settings);
+    }
     notifyListeners();
   }
 
@@ -437,14 +556,28 @@ class AppSettingsController extends ChangeNotifier {
     }
   }
 
-  Future<void> _persistAndVerify(
-    AppSettings settings, {
-    required bool expectedNotificationsEnabled,
-  }) async {
+  Future<void> _persistAndVerify(AppSettings settings) async {
     await _store.write(settings);
     final verified = await _store.read();
-    if (verified.notificationsEnabled != expectedNotificationsEnabled) {
+    if (!_hasSamePersistedValues(settings, verified)) {
       throw StateError('settings_write_failed');
     }
   }
+
+  bool _hasSamePersistedValues(AppSettings expected, AppSettings actual) =>
+      expected.onboardingCompleted == actual.onboardingCompleted &&
+      expected.language == actual.language &&
+      expected.voice == actual.voice &&
+      expected.notificationsEnabled == actual.notificationsEnabled &&
+      listEquals(expected.recentContentIds, actual.recentContentIds) &&
+      listEquals(expected.recentCategories, actual.recentCategories) &&
+      expected.notificationWindow.startMinute ==
+          actual.notificationWindow.startMinute &&
+      expected.notificationWindow.endMinute ==
+          actual.notificationWindow.endMinute &&
+      expected.notificationFrequency == actual.notificationFrequency &&
+      expected.lastScheduleRefreshAt == actual.lastScheduleRefreshAt &&
+      expected.lastTimeZoneId == actual.lastTimeZoneId &&
+      expected.scheduleVersion == actual.scheduleVersion &&
+      expected.lastInAppMessageId == actual.lastInAppMessageId;
 }

@@ -1,3 +1,6 @@
+import 'notification_frequency.dart';
+import 'notification_window.dart';
+
 enum AppLanguage { ja, en }
 
 enum MotherVoice { jaStandard, jaKansai, enNeutral, enBritish }
@@ -40,8 +43,12 @@ class AppSettings {
     required this.notificationsEnabled,
     required this.recentContentIds,
     required this.recentCategories,
+    required this.notificationWindow,
+    required this.notificationFrequency,
+    required this.scheduleVersion,
     this.lastScheduleRefreshAt,
     this.lastTimeZoneId,
+    this.lastInAppMessageId,
   });
 
   factory AppSettings.defaults() => const AppSettings(
@@ -51,6 +58,9 @@ class AppSettings {
     notificationsEnabled: false,
     recentContentIds: <String>[],
     recentCategories: <String>[],
+    notificationWindow: NotificationWindow.defaults,
+    notificationFrequency: NotificationFrequency.normal,
+    scheduleVersion: 0,
   );
 
   final bool onboardingCompleted;
@@ -59,8 +69,12 @@ class AppSettings {
   final bool notificationsEnabled;
   final List<String> recentContentIds;
   final List<String> recentCategories;
+  final NotificationWindow notificationWindow;
+  final NotificationFrequency notificationFrequency;
   final DateTime? lastScheduleRefreshAt;
   final String? lastTimeZoneId;
+  final int scheduleVersion;
+  final String? lastInAppMessageId;
 
   AppSettings copyWith({
     bool? onboardingCompleted,
@@ -69,9 +83,14 @@ class AppSettings {
     bool? notificationsEnabled,
     List<String>? recentContentIds,
     List<String>? recentCategories,
+    NotificationWindow? notificationWindow,
+    NotificationFrequency? notificationFrequency,
     DateTime? lastScheduleRefreshAt,
     String? lastTimeZoneId,
+    int? scheduleVersion,
+    String? lastInAppMessageId,
     bool clearLastScheduleRefreshAt = false,
+    bool clearLastInAppMessageId = false,
   }) => AppSettings(
     onboardingCompleted: onboardingCompleted ?? this.onboardingCompleted,
     language: language ?? this.language,
@@ -83,10 +102,16 @@ class AppSettings {
     recentCategories: List.unmodifiable(
       (recentCategories ?? this.recentCategories).takeLast(2),
     ),
+    notificationWindow: notificationWindow ?? this.notificationWindow,
+    notificationFrequency: notificationFrequency ?? this.notificationFrequency,
     lastScheduleRefreshAt: clearLastScheduleRefreshAt
         ? null
         : (lastScheduleRefreshAt ?? this.lastScheduleRefreshAt),
     lastTimeZoneId: lastTimeZoneId ?? this.lastTimeZoneId,
+    scheduleVersion: scheduleVersion ?? this.scheduleVersion,
+    lastInAppMessageId: clearLastInAppMessageId
+        ? null
+        : (lastInAppMessageId ?? this.lastInAppMessageId),
   );
 }
 

@@ -21,11 +21,11 @@
 **実装着手可能。ただし、アプリIDと深夜遅延通知の扱いを実装開始前に確定する。**
 
 ---
-## v0.2.0 planned product specification
+## v0.2.0 product specification and implementation status
 
-v0.2.0 is a planned change, not implemented behavior in v0.1.0. Until it is implemented and released, the existing v0.1.0 fixed 08:00–20:30 notification scheduling and 2–4 daily requested-count behavior remain the actual product behavior.
+The confirmed v0.2.0 behavior below is implemented and approved for Release. Reviewer やまと approved the 160 new messages and reported the manual Android device gate as passed on 2026-07-17. The automated Android integration test was not run because no supported target was connected; the product owner explicitly waived that check for this Release after accepting the manual result.
 
-| Area | v0.2.0 decided requirement |
+| Area | v0.2.0 implemented requirement |
 | --- | --- |
 | Notification window | Let the user choose a start and end between 07:00 and 23:00 in 30-minute steps. Do not support crossing midnight; require at least three hours. |
 | Last reservation | Reserve no later than 90 minutes before the chosen end time, to allow for inexact-alarm delay. |
@@ -34,7 +34,7 @@ v0.2.0 is a planned change, not implemented behavior in v0.1.0. Until it is impl
 | Migration | Upgrade v0.1.0 settings without repeating onboarding. Use `scheduleVersion` to rebuild existing enabled schedules when the scheduling format changes. |
 | Content target | Expand to at least 80 messages for each voice and at least 320 messages total. New or changed content requires human editorial, safety, language, and dialect review before Release. |
 
-Class-level responsibilities, persistence keys, migration details, error handling, test cases, implementation phases, and prohibitions are defined in [V0.2.0 detailed design](V0.2.0_DETAILED_DESIGN.md). The design is authoritative for v0.2.0 implementation details; it does not retroactively change the v0.1.0 behavior documented above.
+Class-level responsibilities, persistence keys, migration details, error handling, test cases, implementation phases, and prohibitions are defined in [V0.2.0 detailed design](V0.2.0_DETAILED_DESIGN.md). The feature-branch implementation matches these confirmed product requirements. This section does not retroactively change the released v0.1.0 behavior documented above.
 
 
 # 2. 確定事項・仮決定・未決事項

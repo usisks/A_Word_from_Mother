@@ -105,16 +105,19 @@ void main() {
     'en-neutral',
     'en-british',
   ]) {
-    if ((counts[voice] ?? 0) < 40) {
-      errors.add('$voice has fewer than 40 messages');
+    if ((counts[voice] ?? 0) < 80) {
+      errors.add('$voice has fewer than 80 messages');
     }
+  }
+  if (decoded.length < 320) {
+    errors.add('content has fewer than 320 messages');
   }
   if (errors.isNotEmpty) {
     stderr.writeln(errors.join('\n'));
     exitCode = 1;
     return;
   }
-  stdout.writeln('Validated ${decoded.length} provisional messages: $counts');
+  stdout.writeln('Validated ${decoded.length} messages: $counts');
   stdout.writeln(
     'Automated validation passed. Human editorial audit is still required.',
   );

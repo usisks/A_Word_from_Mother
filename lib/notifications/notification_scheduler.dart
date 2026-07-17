@@ -7,8 +7,12 @@ import '../core/clock.dart';
 import '../core/random_source.dart';
 import '../platform/time_zone_service.dart';
 import '../settings/app_settings.dart';
+import '../settings/notification_frequency.dart';
+import '../settings/notification_window.dart';
 import 'notification_constants.dart';
 import 'notification_gateway.dart';
+
+const int currentScheduleVersion = 2;
 
 class ScheduleSummary {
   const ScheduleSummary({
@@ -16,11 +20,13 @@ class ScheduleSummary {
     required this.recentContentIds,
     required this.recentCategories,
     required this.timeZoneId,
+    required this.scheduleVersion,
   });
   final int scheduledCount;
   final List<String> recentContentIds;
   final List<String> recentCategories;
   final String timeZoneId;
+  final int scheduleVersion;
 }
 
 class NotificationScheduler {
@@ -63,6 +69,8 @@ class NotificationScheduler {
         date: date,
         now: now,
         isToday: dayOffset == 0,
+        window: settings.notificationWindow,
+        frequency: settings.notificationFrequency,
       );
       for (var slot = 0; slot < times.length; slot++) {
         final message = _selector.select(
@@ -111,6 +119,7 @@ class NotificationScheduler {
       recentContentIds: List.unmodifiable(recentIds),
       recentCategories: List.unmodifiable(recentCategories),
       timeZoneId: timeZoneId,
+      scheduleVersion: currentScheduleVersion,
     );
   }
 
@@ -118,18 +127,22 @@ class NotificationScheduler {
     required AppSettings settings,
   }) async {
     final timeZoneId = await _timeZoneService.initialize();
+    final now = _clock.now();
     final refreshedAt = settings.lastScheduleRefreshAt;
+    final pendingCount = await _gateway.pendingCount();
     final stale =
         refreshedAt == null ||
-        _clock.now().difference(refreshedAt).inDays >= 23 ||
+        now.difference(refreshedAt).inDays >= 23 ||
         settings.lastTimeZoneId != timeZoneId ||
-        await _gateway.pendingCount() < 14;
+        settings.scheduleVersion != currentScheduleVersion ||
+        pendingCount < minimumPendingCount(settings);
     if (stale) return rebuild(settings: settings);
     return ScheduleSummary(
-      scheduledCount: await _gateway.pendingCount(),
+      scheduledCount: pendingCount,
       recentContentIds: settings.recentContentIds,
       recentCategories: settings.recentCategories,
       timeZoneId: timeZoneId,
+      scheduleVersion: currentScheduleVersion,
     );
   }
 
@@ -139,9 +152,11 @@ class NotificationScheduler {
     required DateTime date,
     required DateTime now,
     required bool isToday,
+    required NotificationWindow window,
+    required NotificationFrequency frequency,
   }) {
-    const endMinute = 20 * 60 + 30;
-    var startMinute = 8 * 60;
+    final endMinute = window.latestReservationMinute;
+    var startMinute = window.startMinute;
     if (isToday) {
       final earliest = now.add(const Duration(minutes: 30));
       if (earliest.year != date.year ||
@@ -154,12 +169,7 @@ class NotificationScheduler {
     }
     final capacity = ((endMinute - startMinute) ~/ 90) + 1;
     if (capacity <= 0) return const [];
-    final count = isToday
-        ? math.min(
-            capacity,
-            capacity == 1 ? 1 : _random.nextInt(math.min(3, capacity - 1)) + 2,
-          )
-        : _random.nextInt(3) + 2;
+    final count = math.min(selectTargetDailyCount(frequency), capacity);
     final slack = endMinute - startMinute - (90 * (count - 1));
     final offsets = List<int>.generate(
       count,
@@ -176,6 +186,14 @@ class NotificationScheduler {
       );
     });
   }
+
+  int selectTargetDailyCount(NotificationFrequency frequency) {
+    final width = frequency.maximumDailyCount - frequency.minimumDailyCount + 1;
+    return frequency.minimumDailyCount + _random.nextInt(width);
+  }
+
+  int minimumPendingCount(AppSettings settings) =>
+      settings.notificationFrequency.minimumDailyCount * 7;
 
   static int notificationId(DateTime date, int slotIndex) =>
       (date.year * 10000 + date.month * 100 + date.day) * 10 + slotIndex;

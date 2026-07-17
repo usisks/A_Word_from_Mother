@@ -1,4 +1,5 @@
 import '../content/content_loader.dart';
+import '../content/in_app_message_selector.dart';
 import '../content/mother_message.dart';
 import '../core/clock.dart';
 import '../core/diagnostics.dart';
@@ -12,6 +13,8 @@ import 'app_settings_controller.dart';
 Future<AppSettingsController> bootstrapApp() async {
   final messages = await _loadContent();
   final gateway = FlutterNotificationGateway();
+  final schedulerRandom = DartRandomSource();
+  final inAppMessageRandom = DartRandomSource();
   final controller = AppSettingsController(
     store: _createSettingsStore(),
     gateway: gateway,
@@ -20,7 +23,11 @@ Future<AppSettingsController> bootstrapApp() async {
       messages: messages,
       timeZoneService: TimeZoneService(),
       clock: const SystemClock(),
-      random: DartRandomSource(),
+      random: schedulerRandom,
+    ),
+    inAppMessageSelector: InAppMessageSelector(
+      messages: messages,
+      random: inAppMessageRandom,
     ),
   );
   gateway.onNotificationBodyTap = controller.showHomeFromNotification;

@@ -1,3 +1,4 @@
+import '../content/mother_message.dart';
 import '../settings/app_settings.dart';
 
 enum AppPhase {
@@ -19,6 +20,7 @@ class AppViewState {
     required this.settings,
     required this.permission,
     required this.scheduling,
+    this.inAppMessage,
     this.userVisibleError,
   });
 
@@ -33,6 +35,7 @@ class AppViewState {
   final AppSettings settings;
   final NotificationPermissionState permission;
   final SchedulingState scheduling;
+  final MotherMessage? inAppMessage;
   final String? userVisibleError;
 
   AppViewState copyWith({
@@ -40,13 +43,18 @@ class AppViewState {
     AppSettings? settings,
     NotificationPermissionState? permission,
     SchedulingState? scheduling,
+    MotherMessage? inAppMessage,
     String? userVisibleError,
+    bool clearInAppMessage = false,
     bool clearError = false,
   }) => AppViewState(
     phase: phase ?? this.phase,
     settings: settings ?? this.settings,
     permission: permission ?? this.permission,
     scheduling: scheduling ?? this.scheduling,
+    inAppMessage: clearInAppMessage
+        ? null
+        : (inAppMessage ?? this.inAppMessage),
     userVisibleError: clearError
         ? null
         : (userVisibleError ?? this.userVisibleError),
