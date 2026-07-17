@@ -25,18 +25,39 @@ class SharedPreferencesSettingsStore implements SettingsStore {
       final voice = storedVoice?.language == language
           ? storedVoice!
           : language.defaultVoice;
+      final rawStartMinute = await _preferences.getInt(
+        'notification_start_minute',
+      );
+      final rawEndMinute = await _preferences.getInt('notification_end_minute');
+      final window = NotificationWindow.tryCreate(
+        startMinute: rawStartMinute ?? NotificationWindow.defaults.startMinute,
+        endMinute: rawEndMinute ?? NotificationWindow.defaults.endMinute,
+      );
+      final rawFrequency = await _preferences.getString(
+        'notification_frequency',
+      );
+      final frequency = NotificationFrequency.parseOrDefault(rawFrequency);
       final settingsAreValid =
           (rawLanguage == null || rawLanguage == 'ja' || rawLanguage == 'en') &&
           (rawVoice == null || storedVoice?.language == language);
       final enabled = settingsAreValid
           ? await _preferences.getBool('notifications_enabled')
           : false;
+      final notificationsEnabled = enabled ?? false;
+      final frequencyWasNormalized =
+          rawFrequency != null &&
+          rawFrequency != NotificationFrequency.quiet.storageValue &&
+          rawFrequency != NotificationFrequency.normal.storageValue &&
+          rawFrequency != NotificationFrequency.chatty.storageValue;
+      final settingsWereNormalized = window == null || frequencyWasNormalized;
+      final storedScheduleVersion =
+          await _preferences.getInt('schedule_version') ?? 0;
       return AppSettings(
         onboardingCompleted:
             await _preferences.getBool('onboarding_completed') ?? false,
         language: language,
         voice: voice,
-        notificationsEnabled: enabled ?? false,
+        notificationsEnabled: notificationsEnabled,
         recentContentIds:
             (await _preferences.getStringList('recent_content_ids') ?? const [])
                 .takeLast(30)
@@ -45,13 +66,18 @@ class SharedPreferencesSettingsStore implements SettingsStore {
             (await _preferences.getStringList('recent_categories') ?? const [])
                 .takeLast(2)
                 .toList(growable: false),
-        notificationWindow: NotificationWindow.defaults,
-        notificationFrequency: NotificationFrequency.normal,
-        scheduleVersion: 0,
+        notificationWindow: window ?? NotificationWindow.defaults,
+        notificationFrequency: frequency,
+        scheduleVersion: notificationsEnabled && settingsWereNormalized
+            ? 0
+            : storedScheduleVersion,
         lastScheduleRefreshAt: DateTime.tryParse(
           await _preferences.getString('last_schedule_refresh_at') ?? '',
         ),
         lastTimeZoneId: await _preferences.getString('last_time_zone_id'),
+        lastInAppMessageId: await _preferences.getString(
+          'last_in_app_message_id',
+        ),
       );
     } on Object catch (error, stackTrace) {
       logFailure('settings_read_failed', error, stackTrace);
@@ -80,6 +106,19 @@ class SharedPreferencesSettingsStore implements SettingsStore {
         'recent_categories',
         settings.recentCategories.takeLast(2).toList(growable: false),
       ),
+      _preferences.setInt(
+        'notification_start_minute',
+        settings.notificationWindow.startMinute,
+      ),
+      _preferences.setInt(
+        'notification_end_minute',
+        settings.notificationWindow.endMinute,
+      ),
+      _preferences.setString(
+        'notification_frequency',
+        settings.notificationFrequency.storageValue,
+      ),
+      _preferences.setInt('schedule_version', settings.scheduleVersion),
       if (settings.lastScheduleRefreshAt != null)
         _preferences.setString(
           'last_schedule_refresh_at',
@@ -91,6 +130,13 @@ class SharedPreferencesSettingsStore implements SettingsStore {
         _preferences.setString('last_time_zone_id', settings.lastTimeZoneId!)
       else
         _preferences.remove('last_time_zone_id'),
+      if (settings.lastInAppMessageId != null)
+        _preferences.setString(
+          'last_in_app_message_id',
+          settings.lastInAppMessageId!,
+        )
+      else
+        _preferences.remove('last_in_app_message_id'),
     ]);
   }
 
