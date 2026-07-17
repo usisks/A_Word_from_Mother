@@ -2,6 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/diagnostics.dart';
 import 'app_settings.dart';
+import 'notification_frequency.dart';
+import 'notification_window.dart';
 import 'settings_store.dart';
 
 class SharedPreferencesSettingsStore implements SettingsStore {
@@ -43,6 +45,9 @@ class SharedPreferencesSettingsStore implements SettingsStore {
             (await _preferences.getStringList('recent_categories') ?? const [])
                 .takeLast(2)
                 .toList(growable: false),
+        notificationWindow: NotificationWindow.defaults,
+        notificationFrequency: NotificationFrequency.normal,
+        scheduleVersion: 0,
         lastScheduleRefreshAt: DateTime.tryParse(
           await _preferences.getString('last_schedule_refresh_at') ?? '',
         ),
