@@ -375,6 +375,7 @@ class AppSettingsController extends ChangeNotifier {
         recentCategories: summary.recentCategories,
         lastScheduleRefreshAt: DateTime.now(),
         lastTimeZoneId: summary.timeZoneId,
+        scheduleVersion: summary.scheduleVersion,
       );
 
   Future<void> _persist(AppSettings settings) => _store.write(settings);
